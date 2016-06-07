@@ -1,0 +1,50 @@
+@import "framework/general/mixins";
+
+.button-styled-1 {
+	position: relative;
+    font-size: 14px;
+    line-height: 1;
+    font-style: normal;
+    text-transform: uppercase;
+    text-align: center;
+    color: #fff;
+    display: inline-block;
+    outline: none;
+    padding: 16px 32px;
+    border: 1px solid #fff;
+    background: #fff;
+    -webkit-backface-visibility: hidden;
+    backface-visibility: hidden;
+    overflow: hidden;
+    cursor: pointer;
+    @include transition(all 0.3s ease);
+    //@include transform(translate(0, 0)); //fix z-index
+    z-index: 0;
+
+    &:before {
+        position: absolute;
+        content: '';
+        @include opacity(1);
+        right: -100%;
+        bottom: 0%;
+        width: 200%;
+        height: 200%;
+        background: #000;
+        -webkit-backface-visibility: hidden;
+        backface-visibility: hidden;
+
+        @include transform(skewX(-60deg));
+        @include transition(all 0.5s ease);
+        z-index: -1;
+
+    }
+
+    &:hover {
+        color: #000;
+        &:before {
+            bottom: -100%;
+            right: -200%;
+            @include opacity(0);
+        }
+    }
+}

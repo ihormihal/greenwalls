@@ -1,0 +1,15 @@
+.progress-bar .bar {
+  stroke-dashoffset: 0;
+  @include transition(all 1s linear);
+}
+.progress-bar .text {
+	fill: color(dark);
+}
+.progress-bar.complete {
+	.bar {
+		//stroke: color(deep-orange);
+	}
+	.text {
+		//fill: color(deep-orange);
+	}
+}
