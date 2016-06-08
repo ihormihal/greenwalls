@@ -1,0 +1,33 @@
+header, footer {
+	section {
+		padding: $gap 0;
+	}
+	.description {
+		padding: 8px 0 8px 20px;
+		font-size: 14px;
+		line-height: 18px;
+		border-left: 1px solid #fff;
+	}
+	.phones, .social {
+		display: block;
+	}
+	.social {
+		float: left;
+	}
+	.phones {
+		float: right;
+		text-align: right;
+		a {
+			display: block;
+			color: #fff;
+			font-size: 18px;
+			line-height: 28px;
+			font-weight: bold;
+		}
+		.question {
+			display: inline-block;
+			color: color(yellow);
+			border-bottom: 1px dotted #fff;
+		}
+	}
+}
