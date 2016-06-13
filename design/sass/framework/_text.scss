@@ -11,25 +11,18 @@ h2,h3,h4,.h2,.h3,.h4 {font-weight: 300}
 h1,.h1 {font-size: 56*$pt;}
 h2,.h2 {font-size: 32*$pt;}
 h3,.h3 {font-size: 24*$pt;}
-h4,.h4 {font-size: 20*$pt;}
+h4,.h4 {font-size: 18*$pt;}
 h5,.h5 {font-size: 16*$pt;}
 h6,.h6 {font-size: 14*$pt;}
 
-.huge	{line-height: 80*$pt;}
-h1,.h1 	{line-height: 64*$pt;}
-h2,.h2	{line-height: 32*$pt;}
-h3,.h3	{line-height: 24*$pt;}
-h4,.h4	{line-height: 20*$pt;}
-h5,.h5	{line-height: 16*$pt;}
-h6,.h6	{line-height: 16*$pt;}
+.huge,.lhuge	{line-height: 80*$pt;}
+h1,.h1,.lh1 {line-height: 64*$pt;}
+h2,.h2,.lh2	{line-height: 32*$pt;}
+h3,.h3,.lh3	{line-height: 24*$pt;}
+h4,.h4,.lh4	{line-height: 20*$pt;}
+h5,.h5,.lh5	{line-height: 16*$pt;}
+h6,.h6,.lh6	{line-height: 16*$pt;}
 
-.lhuge	{line-height: 80*$pt;}
-.lh1 	{line-height: 64*$pt;}
-.lh2	{line-height: 32*$pt;}
-.lh3	{line-height: 24*$pt;}
-.lh4	{line-height: 20*$pt;}
-.lh5	{line-height: 16*$pt;}
-.lh6	{line-height: 16*$pt;}
 .lh-btn {line-height: 42*$pt;}
 
 .slim {font-weight: 100;}

@@ -1,3 +1,9 @@
+$boxHeight: 40px;
+$boxWidth: 40px;
+$overFlow: 10px;
+
+$offsetBotttom: 196px;
+
 .size-control {
 	line-height: 32px;
 	.number {
@@ -63,42 +69,99 @@
 .canvas {
 	overflow: hidden;
 	position: relative;
+	height: 800px;
 	.picture {
-		height: 1000px;
+		height: 800px;
 		position: absolute;
 		top: 0;
 		left: 0;
 		width: 100%;
 		.background {
 			position: absolute;
-			top: 0;
-			left: 0;
+			bottom: 0;
+			left: 50%;
 			width: 100%;
+			@include transform(translate(-50%,0));
 		}
 		.grid {
-			position: relative;
+			position: absolute;
+			bottom: $offsetBotttom;
+			left: 50%;
+			@include transform(translate(-50%,0));
 			table {
 				table-layout: fixed;
 				margin: 0 auto;
 				td {
-					width: 40px;
-					height: 30px;
 					padding: 0;
-					cursor: default;
-					@include transition(background-color 0.3s ease);
+					vertical-align: middle;
+					text-align: center;
+					border-color: rgba(255,255,255,0.4);
+					&.plus {
+						border: none;
+						width: $boxWidth;
+						font-size: 20px;
+						color: rgba(255,255,255,0.6);
+						@include transition(color 0.3s ease);
+						cursor: pointer;
+						&:hover {
+							color: #fff;
+							background-color: transparent;
+						}
+					}
+					.cell {
+						cursor: default;
+						width: $boxWidth;
+						height: $boxHeight;
+						@include transition(background-color 0.3s ease);
+						position: relative;
+						&:after {
+							display: none;
+							content: '';
+							position: absolute;
+							z-index: 1000;
+							top: 0;
+							left: 0;
+							width: 100%;
+							height: 100%;
+							@include border-radius(3px);
+							@include box-shadow(0 0 10px rgba(255,255,255,1) inset, 0 0 10px rgba(255,255,255,1));
+						}
+					}
+					img {
+						display: none;
+					}
 					&.box {
-						background: #f00;
+						background-image: url(../images/bak-black.jpg);
+						background-size: cover;
+						background-repeat: no-repeat;
+						border: none;
+						position: relative;
+						&.selected .cell:after {
+							display: block;
+						}
+						img {
+							display: block;
+							position: absolute;
+							z-index: 10;
+							top: 50%;
+							left: 50%;
+							max-width: $boxWidth + $overFlow;
+							@include transform(translate(-50%,-50%));
+						}
 					}
 					&:hover {
 						background-color: #555;
 					}
-					img {
-						width: 40px;
-						height: 30px;
-					}
 				}
 			}
 			
+		}
+		.bottom-bak {
+			height: $boxHeight;
+			background-image: url('../images/bak-stone.png');
+			background-repeat: repeat-x;
+
+			position: relative;
 		}
 	}
 	.controls {
@@ -142,6 +205,31 @@
 					@include border-radius(100%);
 				}
 				.item-title {
+					margin-top: 8px;
+					font-size: 10px;
+					line-height: 14px;
+					text-transform: uppercase;
+				}
+			}
+		}
+	}
+	.control-horizontal {
+		padding: 7px;
+		background-color: rgba(0,0,0,0.4);
+		margin: 0 120px;
+		.presets {
+			overflow: hidden;
+			.item {
+				width: 100px;
+				height: 110px;
+				float: left;
+				text-align: center;
+				img {
+					width: 64px;
+					height: 64px;
+				}
+				.item-title {
+					color: #fff;
 					margin-top: 8px;
 					font-size: 10px;
 					line-height: 14px;

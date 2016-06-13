@@ -17,16 +17,20 @@
 					
 					<section class="canvas mt2 mb2">
 						<div class="picture">
-							<img class="background" src="http://placehold.it/1920x1000" alt="">
+							<img class="background" src="design/images/room-1.jpg" alt="">
 							<div class="grid">
 								<table>
 									<tr ng-repeat="row in grid.rows">
-										<td ng-repeat="cell in row" ng-class="{'box': cell.box}" ng-click="placePlant(cell.x, cell.y)">
-											{{cell.x}},{{cell.y}}
-											<img ng-show="cell.plant" ng-src="{{cell.plant}}" alt="">
+										<td class="plus" ng-click="selectRow($index)">+</td>
+										<td ng-repeat="cell in row" ng-class="{'box': cell.box, 'selected': cell.selected}" ng-click="selectCell(cell.x, cell.y)">
+											<div class="cell" title="{{cell.x}}:{{cell.y}}">
+												<img ng-show="cell.plant" ng-src="{{cell.plant.image}}" alt="">
+											</div>
 										</td>
+										<td class="plus" ng-click="selectRow($index)">+</td>
 									</tr>
 								</table>
+								<div class="bottom-bak" style="width: {{width}}px; left: {{(rackIndex.x1 + 1) * 40}}px"></div>
 							</div>
 						</div>
 						<div class="container controls">
@@ -46,9 +50,9 @@
 											<img src="http://placehold.it/100x100" alt="">
 											<div class="item-title">Композиция 10x30</div>
 										</div>
-										<div class="item">
+										<div class="item" ng-click="showPlants()">
 											<img src="http://placehold.it/100x100" alt="">
-											<div class="item-title">Композиция 10x30</div>
+											<div class="item-title">More</div>
 										</div>
 									</div>
 								</div>
@@ -76,45 +80,62 @@
 									</div>
 								</div>
 							</div>
+
+							<div class="control-horizontal">
+								<div class="inner">
+									<div class="presets plants">
+										<div class="item" ng-repeat="plant in plants" ng-click="placePlant($index)">
+											<img ng-src="{{plant.image}}" alt="">
+											<div class="item-title">{{plant.title}}</div>
+										</div>
+									</div>
+								</div>
+							</div>
+
 						</div>
 					</section>
 
 
 					<section class="size-control pt2 pb2">
 						<div class="container">
-							<div class="box shadow-2">
-								<div class="row">
-									<div class="col-md-4">
-										<div class="green up">размер зеленой стены</div>
-									</div>
-									<div class="col-md-2">
-										<div class="left bold up">высота</div>
-										<div class="number">
-											<div class="value">180</div>
-											<div class="controls">
-												<div class="plus"></div>
-												<div class="minus"></div>
+							<div class="row">
+								<div class="col-md-10 col-md-offset-1">
+									<div class="box shadow-2">
+										<div class="row">
+											<div class="col-md-3">
+												<div class="green up bold">размер зеленой стены</div>
+											</div>
+											<div class="col-md-3">
+												<div class="left bold up">высота</div>
+												<div class="number">
+													<div class="value">{{rackSize.height * boxSize.height}}</div>
+													<div class="controls">
+														<div class="plus" ng-click="plusRackHeight()"></div>
+														<div class="minus" ng-click="minusRackHeight()"></div>
+													</div>
+												</div>
+												<div class="up">см</div>
+											</div>
+											<div class="col-md-3">
+												<div class="left bold up">ширина</div>
+												<div class="number">
+													<div class="value">{{rackSize.width * boxSize.width}}</div>
+													<div class="controls">
+														<div class="plus" ng-click="plusRackWidth()"></div>
+														<div class="minus" ng-click="minusRackWidth()"></div>
+													</div>
+												</div>
+												<div class="up">см</div>
+											</div>
+											<div class="col-md-3 border-left">
+												<div class="left green up bold">цена</div>
+												<div class="price right">{{price}} грн</div>
 											</div>
 										</div>
-										<div class="up">см</div>
-									</div>
-									<div class="col-md-2">
-										<div class="left bold up">ширина</div>
-										<div class="number">
-											<div class="value">180</div>
-											<div class="controls">
-												<div class="plus"></div>
-												<div class="minus"></div>
-											</div>
-										</div>
-										<div class="up">см</div>
-									</div>
-									<div class="col-md-4">
-										<div class="left green up">цена</div>
-										<div class="price right">12 600 грн</div>
 									</div>
 								</div>
 							</div>
+							
 						</div>
 					</section>
 					<section class="form pt3 pb3">
@@ -122,18 +143,27 @@
 							<div class="row">
 								<div class="col-md-6 col-md-offset-3">
 									<div class="text-center">
-										<h2 class="green">Закажи <span class="black bold">Себе</span></h2>
+										<h2 class="green mb1">Закажи <span class="black bold">Себе</span></h2>
 										<p class="h4">Вертикальное озеленение - это неизменный атрибут офисов ведущих мировых компаний и жилищ успешных людей всего мира</p>
 									</div>
 									<form action="#" class="mt2">
 										<div class="form-group">
-											<input type="text" class="full" placeholder="Ваше имя">
+											<div class="input-icon default">
+												<input type="text" class="full default" placeholder="Ваше имя">
+												<i class="fa fa-user"></i>
+											</div>
 										</div>
 										<div class="form-group">
-											<input type="text" class="full" placeholder="Ваш номер">
+											<div class="input-icon default">
+												<input type="text" class="full default" placeholder="Ваш номер">
+												<i class="fa fa-phone"></i>
+											</div>
 										</div>
 										<div class="form-group">
-											<input type="text" class="full" placeholder="Ваш e-mail">
+											<div class="input-icon default">
+												<input type="text" class="full default" placeholder="Ваш e-mail">
+												<i class="fa fa-envelope-o"></i>
+											</div>
 										</div>
 										<div class="text-center">
 											<button class="btn btn-red">

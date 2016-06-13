@@ -8,27 +8,14 @@ $base = 'http://greenwalls/'
 <title>GreenWalls</title>
 <!-- Plugins CSS -->
 <link href="design/plugins/font-awesome/css/font-awesome.min.css" type="text/css" rel="stylesheet" media="screen,projection" />
-<link href="design/plugins/material-icons/css/material-icons.css" type="text/css" rel="stylesheet" media="screen,projection" />
 <link href="design/plugins/fancybox/css/jquery.fancybox.css" rel="stylesheet">
-<link href="design/plugins/owl/css/owl.carousel.css" rel="stylesheet">
-<link href="design/plugins/code/css/github.css" rel="stylesheet">
 <!-- Custom CSS -->
 <link href="design/css/framework.css" type="text/css" rel="stylesheet">
 <link href="design/css/animate.css" type="text/css" rel="stylesheet">
 <!-- Plugins JS -->
-<!-- <script src="http://maps.google.com/maps/api/js?sensor=false" type="text/javascript"></script> -->
 <script src="design/plugins/jquery/jquery-2.1.4.min.js" type="text/javascript"></script>
 <script src="design/plugins/fancybox/js/jquery.fancybox.pack.js" type="text/javascript"></script>
-<script src="design/plugins/owl/js/owl.carousel.min.js" type="text/javascript"></script>
-<script src="design/plugins/code/js/highlight.min.js" type="text/javascript"></script>
 <!-- Framework JS -->
-<script src="design/js/framework/owl.js" type="text/javascript"></script>
-<script src="design/js/framework/ripple.js" type="text/javascript"></script>
-<script src="design/js/framework/navbar.js" type="text/javascript"></script>
-<script src="design/js/framework/im-dropdown.js" type="text/javascript"></script>
-<script src="design/js/framework/im-select.js" type="text/javascript"></script>
-<script src="design/js/framework/im-parallax.js" type="text/javascript"></script>
-<script src="design/js/framework/fileinput.js" type="text/javascript"></script>
 <!-- Custom JS -->
 <script src="design/js/scripts.js" type="text/javascript"></script>
 
