@@ -2,6 +2,9 @@ header, footer {
 	section {
 		padding: $gap 0;
 	}
+	.logo {
+		padding-top: 20px;
+	}
 	.description {
 		padding: 8px 0 8px 20px;
 		font-size: 14px;
@@ -13,10 +16,43 @@ header, footer {
 	}
 	.social {
 		float: left;
+		margin-top: 17px;
+		.icon {
+			display: block;
+			background-repeat: no-repeat;
+			height: 30px;
+			min-width: 30px;
+			float: left;
+			margin-right: 7px;
+			&.icon-instagram {
+				background-image: url(../images/inst.png);
+			}
+			&.icon-pinterest {
+				background-image: url(../images/pr.png);
+			}
+			&.icon-facebook {
+				clear: both;
+				width: 80px;
+				background-size: 80px;
+				margin-top: 6px;
+				background-image: url(../images/f_buttons.png);
+			}
+		}
 	}
 	.phones {
 		float: right;
 		text-align: right;
+		.tel {
+			padding-left: 30px;
+			background-repeat: no-repeat;
+			background-position: center left;
+			background-size: 20px;
+			float: right;
+			clear: both;
+			&.life {background-image: url(../images/life.png);}
+			&.kyivstar {background-image: url(../images/kyivstar.png);}
+			&.general {background-image: url(../images/staz.png);}
+		}
 		a {
 			display: block;
 			color: #fff;
@@ -25,6 +61,7 @@ header, footer {
 			font-weight: bold;
 		}
 		.question {
+			clear: both;
 			display: inline-block;
 			color: color(yellow);
 			border-bottom: 1px dotted #fff;

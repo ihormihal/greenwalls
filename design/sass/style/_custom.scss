@@ -1,6 +1,6 @@
 $boxHeight: 40px;
 $boxWidth: 40px;
-$overFlow: 10px;
+$overFlow: 5px;
 
 $offsetBotttom: 196px;
 
@@ -112,7 +112,6 @@ $offsetBotttom: 196px;
 						cursor: default;
 						width: $boxWidth;
 						height: $boxHeight;
-						@include transition(background-color 0.3s ease);
 						position: relative;
 						&:after {
 							display: none;
@@ -130,16 +129,25 @@ $offsetBotttom: 196px;
 					img {
 						display: none;
 					}
-					&.box {
-						background-image: url(../images/bak-black.jpg);
-						background-size: cover;
-						background-repeat: no-repeat;
-						border: none;
-						position: relative;
-						&.selected .cell:after {
+					&.area {
+						background-color: rgba(255,255,255,0.4);
+						@include transition(background-color 0.3s ease);
+						
+						&:hover {
+							background-color: rgba(255,255,255,0.8);
+						}
+						&.selected, &.plant {
+							background-image: url(../images/bak-black.jpg);
+							background-size: cover;
+							background-repeat: no-repeat;
+							border-color: transparent;
+							position: relative;
+							@include box-shadow(5px 5px 10px rgba(0,0,0,0.5));
+						}
+						&.selected.plant .cell:after {
 							display: block;
 						}
-						img {
+						&.plant img {
 							display: block;
 							position: absolute;
 							z-index: 10;
@@ -149,26 +157,48 @@ $offsetBotttom: 196px;
 							@include transform(translate(-50%,-50%));
 						}
 					}
-					&:hover {
-						background-color: #555;
-					}
 				}
 			}
 			
 		}
 		.bottom-bak {
 			height: $boxHeight;
+			margin-left: $boxWidth;
 			background-image: url('../images/bak-stone.png');
 			background-repeat: repeat-x;
-
 			position: relative;
+			@include box-shadow(5px 5px 10px rgba(0,0,0,0.5));
+		}
+		&.plain {
+			.grid {
+				table {
+					td {
+						border-color: transparent;
+						&.plus {
+							color: transparent;
+						}
+						&.area {
+							background-color: transparent;
+						}
+					}
+				}
+			}
 		}
 	}
 	.controls {
-		position: relative;
 		margin-top: 40px;
+		.bottom {
+			position: absolute;
+			bottom: 0;
+			width: 100%;
+			left: 0;
+		}
+	}
+	.control-top {
+		position: relative;
 	}
 	.control {
+		position: relative;
 		width: 100px;
 		padding: 7px;
 		@include border-radius(50px);
@@ -177,6 +207,7 @@ $offsetBotttom: 196px;
 			@include border-radius(50px);
 			background-color: color(green);
 		}
+		
 		&.control-left {
 			float: left;
 		}
@@ -214,11 +245,17 @@ $offsetBotttom: 196px;
 		}
 	}
 	.control-horizontal {
-		padding: 7px;
-		background-color: rgba(0,0,0,0.4);
-		margin: 0 120px;
+		padding: 7px 0;
+		background-color: rgba(0,0,0,0.6);
+		margin: 0 auto;
+		overflow: hidden;
+		height: 114px;
+		width: 900px;
 		.presets {
 			overflow: hidden;
+			* {
+				@include no-select();
+			}
 			.item {
 				width: 100px;
 				height: 110px;
@@ -227,6 +264,7 @@ $offsetBotttom: 196px;
 				img {
 					width: 64px;
 					height: 64px;
+					pointer-events: none;
 				}
 				.item-title {
 					color: #fff;
@@ -234,6 +272,40 @@ $offsetBotttom: 196px;
 					font-size: 10px;
 					line-height: 14px;
 					text-transform: uppercase;
+				}
+			}
+		}
+		.carousel {
+			position: relative;
+			overflow: hidden;
+			height: 100px;
+			.carousel-wrapper {
+				position: relative;
+				overflow: hidden;
+				height: 100px;
+				float: left;
+			}
+			.carousel-content {
+				position: absolute;
+				left: 0;
+				top: 0;
+				height: 100px;
+				&.static {
+					@include transition(left 0.3s ease);
+				}
+			}
+			.nav {
+				height: 100px;
+				width: 50px;
+				float: left;
+				cursor: pointer;
+				text-align: center;
+				line-height: 100px;
+				color: #fff;
+				font-size: 20px;
+				&.nav-left {
+				}
+				&.nav-right {
 				}
 			}
 		}

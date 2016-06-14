@@ -21,6 +21,7 @@ $base = 'http://greenwalls/'
 
 
 <script src="app/lib/angular.min.js" type="text/javascript"></script>
+<script src="app/lib/html2canvas.js" type="text/javascript"></script>
 <script src="app/app.js" type="text/javascript"></script>
 <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
 <!--[if lt IE 9]>

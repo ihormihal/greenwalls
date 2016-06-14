@@ -8,32 +8,39 @@
 					<?php include 'components/info.php'; ?>
 				</header>
 				<main ng-controller="mainController">
-					<section class="pt3 pb3">
+					<section class="pt3">
 						<div class="container text-center">
-							<h2 class="green"><span class="black bold">Ваша</span> Зеленая Стена</h2>
+							<h2 class="green mb1"><span class="black bold">Ваша</span> Зеленая Стена</h2>
 							<p class="h4">Удобный конструктор для Вашего индивидуального проекта GreenWalls.</p>
 						</div>
 					</section>
 					
 					<section class="canvas mt2 mb2">
-						<div class="picture">
+						<div id="picture" class="picture">
 							<img class="background" src="design/images/room-1.jpg" alt="">
 							<div class="grid">
 								<table>
-									<tr ng-repeat="row in grid.rows">
-										<td class="plus" ng-click="selectRow($index)">+</td>
-										<td ng-repeat="cell in row" ng-class="{'box': cell.box, 'selected': cell.selected}" ng-click="selectCell(cell.x, cell.y)">
-											<div class="cell" title="{{cell.x}}:{{cell.y}}">
+									<tr ng-repeat="(y, row) in grid.rows">
+										<td class="plus" ng-click="selectRow(y)">+</td>
+										<td 
+										ng-repeat="(x, cell) in row" 
+										ng-class="{'area': cell.area, 'selected': cell.selected, 'plant': cell.plant}" 
+										ng-click="selectCell(x, y)">
+											<div class="cell" title="{{x}}:{{y}}">
 												<img ng-show="cell.plant" ng-src="{{cell.plant.image}}" alt="">
 											</div>
 										</td>
-										<td class="plus" ng-click="selectRow($index)">+</td>
+										<td class="plus" ng-click="selectRow(y)">+</td>
 									</tr>
 								</table>
-								<div class="bottom-bak" style="width: {{width}}px; left: {{(rackIndex.x1 + 1) * 40}}px"></div>
+								<div class="bottom-bak" style="width: {{bak.width}}px; left: {{bak.left}}px"></div>
 							</div>
 						</div>
 						<div class="container controls">
+							<div class="control-top">
+								<a href="#" class="btn" id="capture">Capture</a>
+								<a href="#" class="btn" id="hide-grid">Hide grid</a>
+							</div>
 							<div class="control control-left">
 								<div class="inner">
 									<div class="title">Выбор композиции</div>
@@ -81,19 +88,17 @@
 								</div>
 							</div>
 
-							<div class="control-horizontal">
-								<div class="inner">
-									<div class="presets plants">
-										<div class="item" ng-repeat="plant in plants" ng-click="placePlant($index)">
-											<img ng-src="{{plant.image}}" alt="">
-											<div class="item-title">{{plant.title}}</div>
-										</div>
-									</div>
+							<div class="bottom">
+								<div class="control-horizontal">
+									<carousel items="plants" action="placePlant(index)">
+									</carousel>
 								</div>
 							</div>
 
+							
 						</div>
 					</section>
+
 
 
 					<section class="size-control pt2 pb2">
@@ -108,10 +113,10 @@
 											<div class="col-md-3">
 												<div class="left bold up">высота</div>
 												<div class="number">
-													<div class="value">{{rackSize.height * boxSize.height}}</div>
+													<div class="value">{{area.size.y * config.box.realSize.height}}</div>
 													<div class="controls">
-														<div class="plus" ng-click="plusRackHeight()"></div>
-														<div class="minus" ng-click="minusRackHeight()"></div>
+														<div class="plus" ng-click="plusAreaHeight()"></div>
+														<div class="minus" ng-click="minusAreaHeight()"></div>
 													</div>
 												</div>
 												<div class="up">см</div>
@@ -119,10 +124,10 @@
 											<div class="col-md-3">
 												<div class="left bold up">ширина</div>
 												<div class="number">
-													<div class="value">{{rackSize.width * boxSize.width}}</div>
+													<div class="value">{{area.size.x * config.box.realSize.width}}</div>
 													<div class="controls">
-														<div class="plus" ng-click="plusRackWidth()"></div>
-														<div class="minus" ng-click="minusRackWidth()"></div>
+														<div class="plus" ng-click="plusAreaWidth()"></div>
+														<div class="minus" ng-click="minusAreaWidth()"></div>
 													</div>
 												</div>
 												<div class="up">см</div>

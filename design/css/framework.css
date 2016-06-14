@@ -4568,26 +4568,77 @@ header section, footer section {
   padding: 16px 0;
 }
 /* line 5, ../sass/framework/_header.scss */
+header .logo, footer .logo {
+  padding-top: 20px;
+}
+/* line 8, ../sass/framework/_header.scss */
 header .description, footer .description {
   padding: 8px 0 8px 20px;
   font-size: 14px;
   line-height: 18px;
   border-left: 1px solid #fff;
 }
-/* line 11, ../sass/framework/_header.scss */
+/* line 14, ../sass/framework/_header.scss */
 header .phones, header .social, footer .phones, footer .social {
   display: block;
 }
-/* line 14, ../sass/framework/_header.scss */
+/* line 17, ../sass/framework/_header.scss */
 header .social, footer .social {
   float: left;
+  margin-top: 17px;
 }
-/* line 17, ../sass/framework/_header.scss */
+/* line 20, ../sass/framework/_header.scss */
+header .social .icon, footer .social .icon {
+  display: block;
+  background-repeat: no-repeat;
+  height: 30px;
+  min-width: 30px;
+  float: left;
+  margin-right: 7px;
+}
+/* line 27, ../sass/framework/_header.scss */
+header .social .icon.icon-instagram, footer .social .icon.icon-instagram {
+  background-image: url(../images/inst.png);
+}
+/* line 30, ../sass/framework/_header.scss */
+header .social .icon.icon-pinterest, footer .social .icon.icon-pinterest {
+  background-image: url(../images/pr.png);
+}
+/* line 33, ../sass/framework/_header.scss */
+header .social .icon.icon-facebook, footer .social .icon.icon-facebook {
+  clear: both;
+  width: 80px;
+  background-size: 80px;
+  margin-top: 6px;
+  background-image: url(../images/f_buttons.png);
+}
+/* line 42, ../sass/framework/_header.scss */
 header .phones, footer .phones {
   float: right;
   text-align: right;
 }
-/* line 20, ../sass/framework/_header.scss */
+/* line 45, ../sass/framework/_header.scss */
+header .phones .tel, footer .phones .tel {
+  padding-left: 30px;
+  background-repeat: no-repeat;
+  background-position: center left;
+  background-size: 20px;
+  float: right;
+  clear: both;
+}
+/* line 52, ../sass/framework/_header.scss */
+header .phones .tel.life, footer .phones .tel.life {
+  background-image: url(../images/life.png);
+}
+/* line 53, ../sass/framework/_header.scss */
+header .phones .tel.kyivstar, footer .phones .tel.kyivstar {
+  background-image: url(../images/kyivstar.png);
+}
+/* line 54, ../sass/framework/_header.scss */
+header .phones .tel.general, footer .phones .tel.general {
+  background-image: url(../images/staz.png);
+}
+/* line 56, ../sass/framework/_header.scss */
 header .phones a, footer .phones a {
   display: block;
   color: #fff;
@@ -4595,8 +4646,9 @@ header .phones a, footer .phones a {
   line-height: 28px;
   font-weight: bold;
 }
-/* line 27, ../sass/framework/_header.scss */
+/* line 63, ../sass/framework/_header.scss */
 header .phones .question, footer .phones .question {
+  clear: both;
   display: inline-block;
   color: #ffeb3b;
   border-bottom: 1px dotted #fff;
@@ -4742,13 +4794,9 @@ header .phones .question, footer .phones .question {
   cursor: default;
   width: 40px;
   height: 40px;
-  -moz-transition: background-color 0.3s ease;
-  -o-transition: background-color 0.3s ease;
-  -webkit-transition: background-color 0.3s ease;
-  transition: background-color 0.3s ease;
   position: relative;
 }
-/* line 117, ../sass/style/_custom.scss */
+/* line 116, ../sass/style/_custom.scss */
 .canvas .picture .grid table td .cell:after {
   display: none;
   content: '';
@@ -4765,53 +4813,91 @@ header .phones .question, footer .phones .question {
   -webkit-box-shadow: 0 0 10px white inset, 0 0 10px white;
   box-shadow: 0 0 10px white inset, 0 0 10px white;
 }
-/* line 130, ../sass/style/_custom.scss */
+/* line 129, ../sass/style/_custom.scss */
 .canvas .picture .grid table td img {
   display: none;
 }
-/* line 133, ../sass/style/_custom.scss */
-.canvas .picture .grid table td.box {
+/* line 132, ../sass/style/_custom.scss */
+.canvas .picture .grid table td.area {
+  background-color: rgba(255, 255, 255, 0.4);
+  -moz-transition: background-color 0.3s ease;
+  -o-transition: background-color 0.3s ease;
+  -webkit-transition: background-color 0.3s ease;
+  transition: background-color 0.3s ease;
+}
+/* line 136, ../sass/style/_custom.scss */
+.canvas .picture .grid table td.area:hover {
+  background-color: rgba(255, 255, 255, 0.8);
+}
+/* line 139, ../sass/style/_custom.scss */
+.canvas .picture .grid table td.area.selected, .canvas .picture .grid table td.area.plant {
   background-image: url(../images/bak-black.jpg);
   background-size: cover;
   background-repeat: no-repeat;
-  border: none;
+  border-color: transparent;
   position: relative;
+  -moz-box-shadow: 5px 5px 10px rgba(0, 0, 0, 0.5);
+  -webkit-box-shadow: 5px 5px 10px rgba(0, 0, 0, 0.5);
+  box-shadow: 5px 5px 10px rgba(0, 0, 0, 0.5);
 }
-/* line 139, ../sass/style/_custom.scss */
-.canvas .picture .grid table td.box.selected .cell:after {
+/* line 147, ../sass/style/_custom.scss */
+.canvas .picture .grid table td.area.selected.plant .cell:after {
   display: block;
 }
-/* line 142, ../sass/style/_custom.scss */
-.canvas .picture .grid table td.box img {
+/* line 150, ../sass/style/_custom.scss */
+.canvas .picture .grid table td.area.plant img {
   display: block;
   position: absolute;
   z-index: 10;
   top: 50%;
   left: 50%;
-  max-width: 50px;
+  max-width: 45px;
   -moz-transform: translate(-50%, -50%);
   -ms-transform: translate(-50%, -50%);
   -webkit-transform: translate(-50%, -50%);
   transform: translate(-50%, -50%);
 }
-/* line 152, ../sass/style/_custom.scss */
-.canvas .picture .grid table td:hover {
-  background-color: #555;
-}
-/* line 159, ../sass/style/_custom.scss */
+/* line 164, ../sass/style/_custom.scss */
 .canvas .picture .bottom-bak {
   height: 40px;
+  margin-left: 40px;
   background-image: url("../images/bak-stone.png");
   background-repeat: repeat-x;
   position: relative;
+  -moz-box-shadow: 5px 5px 10px rgba(0, 0, 0, 0.5);
+  -webkit-box-shadow: 5px 5px 10px rgba(0, 0, 0, 0.5);
+  box-shadow: 5px 5px 10px rgba(0, 0, 0, 0.5);
 }
-/* line 167, ../sass/style/_custom.scss */
+/* line 175, ../sass/style/_custom.scss */
+.canvas .picture.plain .grid table td {
+  border-color: transparent;
+}
+/* line 177, ../sass/style/_custom.scss */
+.canvas .picture.plain .grid table td.plus {
+  color: transparent;
+}
+/* line 180, ../sass/style/_custom.scss */
+.canvas .picture.plain .grid table td.area {
+  background-color: transparent;
+}
+/* line 188, ../sass/style/_custom.scss */
 .canvas .controls {
-  position: relative;
   margin-top: 40px;
 }
-/* line 171, ../sass/style/_custom.scss */
+/* line 190, ../sass/style/_custom.scss */
+.canvas .controls .bottom {
+  position: absolute;
+  bottom: 0;
+  width: 100%;
+  left: 0;
+}
+/* line 197, ../sass/style/_custom.scss */
+.canvas .control-top {
+  position: relative;
+}
+/* line 200, ../sass/style/_custom.scss */
 .canvas .control {
+  position: relative;
   width: 100px;
   padding: 7px;
   -moz-border-radius: 50px;
@@ -4819,22 +4905,22 @@ header .phones .question, footer .phones .question {
   border-radius: 50px;
   background-color: rgba(255, 255, 255, 0.4);
 }
-/* line 176, ../sass/style/_custom.scss */
+/* line 206, ../sass/style/_custom.scss */
 .canvas .control .inner {
   -moz-border-radius: 50px;
   -webkit-border-radius: 50px;
   border-radius: 50px;
   background-color: #4caf50;
 }
-/* line 180, ../sass/style/_custom.scss */
+/* line 211, ../sass/style/_custom.scss */
 .canvas .control.control-left {
   float: left;
 }
-/* line 183, ../sass/style/_custom.scss */
+/* line 214, ../sass/style/_custom.scss */
 .canvas .control.control-right {
   float: right;
 }
-/* line 186, ../sass/style/_custom.scss */
+/* line 217, ../sass/style/_custom.scss */
 .canvas .control .title {
   text-align: center;
   padding: 20px 5px;
@@ -4843,7 +4929,7 @@ header .phones .question, footer .phones .question {
   color: #fff;
   text-transform: uppercase;
 }
-/* line 194, ../sass/style/_custom.scss */
+/* line 225, ../sass/style/_custom.scss */
 .canvas .control .presets {
   background-color: #fff;
   padding: 12px 0;
@@ -4851,13 +4937,13 @@ header .phones .question, footer .phones .question {
   -webkit-border-radius: 50px;
   border-radius: 50px;
 }
-/* line 198, ../sass/style/_custom.scss */
+/* line 229, ../sass/style/_custom.scss */
 .canvas .control .presets .item {
   padding: 0 5px;
   text-align: center;
   margin-bottom: 20px;
 }
-/* line 202, ../sass/style/_custom.scss */
+/* line 233, ../sass/style/_custom.scss */
 .canvas .control .presets .item img {
   width: 64px;
   height: 64px;
@@ -4865,40 +4951,91 @@ header .phones .question, footer .phones .question {
   -webkit-border-radius: 100%;
   border-radius: 100%;
 }
-/* line 207, ../sass/style/_custom.scss */
+/* line 238, ../sass/style/_custom.scss */
 .canvas .control .presets .item .item-title {
   margin-top: 8px;
   font-size: 10px;
   line-height: 14px;
   text-transform: uppercase;
 }
-/* line 216, ../sass/style/_custom.scss */
+/* line 247, ../sass/style/_custom.scss */
 .canvas .control-horizontal {
-  padding: 7px;
-  background-color: rgba(0, 0, 0, 0.4);
-  margin: 0 120px;
+  padding: 7px 0;
+  background-color: rgba(0, 0, 0, 0.6);
+  margin: 0 auto;
+  overflow: hidden;
+  height: 114px;
+  width: 900px;
 }
-/* line 220, ../sass/style/_custom.scss */
+/* line 254, ../sass/style/_custom.scss */
 .canvas .control-horizontal .presets {
   overflow: hidden;
 }
-/* line 222, ../sass/style/_custom.scss */
+/* line 256, ../sass/style/_custom.scss */
+.canvas .control-horizontal .presets * {
+  -webkit-touch-callout: none;
+  -webkit-user-select: none;
+  -khtml-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
+}
+/* line 259, ../sass/style/_custom.scss */
 .canvas .control-horizontal .presets .item {
   width: 100px;
   height: 110px;
   float: left;
   text-align: center;
 }
-/* line 227, ../sass/style/_custom.scss */
+/* line 264, ../sass/style/_custom.scss */
 .canvas .control-horizontal .presets .item img {
   width: 64px;
   height: 64px;
+  pointer-events: none;
 }
-/* line 231, ../sass/style/_custom.scss */
+/* line 269, ../sass/style/_custom.scss */
 .canvas .control-horizontal .presets .item .item-title {
   color: #fff;
   margin-top: 8px;
   font-size: 10px;
   line-height: 14px;
   text-transform: uppercase;
+}
+/* line 278, ../sass/style/_custom.scss */
+.canvas .control-horizontal .carousel {
+  position: relative;
+  overflow: hidden;
+  height: 100px;
+}
+/* line 282, ../sass/style/_custom.scss */
+.canvas .control-horizontal .carousel .carousel-wrapper {
+  position: relative;
+  overflow: hidden;
+  height: 100px;
+  float: left;
+}
+/* line 288, ../sass/style/_custom.scss */
+.canvas .control-horizontal .carousel .carousel-content {
+  position: absolute;
+  left: 0;
+  top: 0;
+  height: 100px;
+}
+/* line 293, ../sass/style/_custom.scss */
+.canvas .control-horizontal .carousel .carousel-content.static {
+  -moz-transition: left 0.3s ease;
+  -o-transition: left 0.3s ease;
+  -webkit-transition: left 0.3s ease;
+  transition: left 0.3s ease;
+}
+/* line 297, ../sass/style/_custom.scss */
+.canvas .control-horizontal .carousel .nav {
+  height: 100px;
+  width: 50px;
+  float: left;
+  cursor: pointer;
+  text-align: center;
+  line-height: 100px;
+  color: #fff;
+  font-size: 20px;
 }

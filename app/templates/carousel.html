@@ -1,0 +1,12 @@
+<div class="inner carousel">
+	<div class="nav nav-left" ng-click="carousel.prev();"><i class="fa fa-angle-left"></i></div>
+	<div class="carousel-wrapper">
+		<div class="carousel-content static presets plants">
+			<div class="item" ng-repeat="plant in items" ng-click="select($index)">
+				<img ng-src="{{plant.image}}" alt="">
+				<div class="item-title">{{plant.title}}</div>
+			</div>
+		</div>
+	</div>
+	<div class="nav nav-right" ng-click="carousel.next();"><i class="fa fa-angle-right"></i></div>
+</div>

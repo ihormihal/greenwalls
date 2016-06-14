@@ -10,18 +10,50 @@ angular.module('app', [])
 
 .controller('mainController', ['$scope', function($scope){
 
-	var config = {
-		minSize: {
-			y: 5,
-			x: 6
+	$scope.config = {
+		box: {
+			realSize: {
+				width: 200,
+				height: 166
+			},
+			size: {
+				width: 40,
+				height: 40
+			}
 		},
-		maxSize: {
-			y: 15,
-			x: 30
+		area: {
+			minWidth: 6,
+			minHeight: 5,
+			maxWidth: 12,
+			maxHeight: 10,
 		}
 	};
 
-	$scope.width = 100;
+	$scope.bak = {
+		width: 0,
+		left: 0
+	};
+
+	$scope.price = 0;
+
+	$scope.grid = {
+		rows: [],
+		size: {
+			x: $scope.config.area.maxWidth,
+			y: $scope.config.area.maxHeight
+		}
+	};
+
+	$scope.area = {
+		size: {
+			x: $scope.config.area.minWidth,
+			y: $scope.config.area.minHeight
+		},
+		offset: {
+			x: Math.floor(($scope.config.area.maxWidth - $scope.config.area.minWidth/2)),
+			y: $scope.config.area.maxHeight - $scope.config.area.minHeight
+		}
+	};
 
 	$scope.plants = [
 		{
@@ -110,58 +142,30 @@ angular.module('app', [])
 		}
 	];
 
-	$scope.price = 0;
-
-	$scope.boxSize = {
-		height: 16.6,
-		width: 20
-	};
-
-	$scope.gridSize = {
-		height: 12,
-		width: 12
-	};
-
-	$scope.rackSize = {
-		height: config.minSize.y,
-		width: config.minSize.x
-	};
-
-	$scope.rackIndex = {
-		x1: 0,
-		x2: $scope.gridSize.width,
-		y1: 0,
-		y2: $scope.gridSize.height
-	};
-
-	$scope.plusRackHeight = function(){
-		if($scope.rackSize.height < $scope.gridSize.height){
-			$scope.rackSize.height++;
+	$scope.plusAreaHeight = function(){
+		if($scope.area.size.y < $scope.grid.size.y){
+			$scope.area.size.y++;
 		}
 	};
-	$scope.minusRackHeight = function(){
-		if($scope.rackSize.height > config.minSize.y){
-			$scope.rackSize.height--;
+	$scope.minusAreaHeight = function(){
+		if($scope.area.size.y > $scope.config.area.minHeight){
+			$scope.area.size.y--;
 		}
 	};
-	$scope.plusRackWidth = function(){
-		if($scope.rackSize.width < $scope.gridSize.width){
-			$scope.rackSize.width++;
+	$scope.plusAreaWidth = function(){
+		if($scope.area.size.x < $scope.grid.size.x){
+			$scope.area.size.x++;
 		}
 	};
-	$scope.minusRackWidth = function(){
-		if($scope.rackSize.width > config.minSize.x){
-			$scope.rackSize.width--;
+	$scope.minusAreaWidth = function(){
+		if($scope.area.size.x > $scope.config.area.minWidth){
+			$scope.area.size.x--;
 		}
-	};
-
-	$scope.grid = {
-		rows: []
 	};
 
 	$scope.placePlant = function(index){
-		for (var y = 0; y < $scope.gridSize.height; y++) {
-			for (var x = 0; x < $scope.gridSize.width; x++) {
+		for (var y = 0; y < $scope.grid.size.y; y++) {
+			for (var x = 0; x < $scope.grid.size.x; x++) {
 				if($scope.grid.rows[y][x].selected){
 					$scope.grid.rows[y][x].plant = $scope.plants[index];
 					$scope.grid.rows[y][x].selected = false;
@@ -173,41 +177,37 @@ angular.module('app', [])
 
 	$scope.selectRow = function(index){
 		var selected = [];
-		for (var x = 0; x < $scope.gridSize.width; x++) {
-			if($scope.grid.rows[index][x].box){
-				if($scope.grid.rows[index][x].selected){
-					selected.push($scope.grid.rows[index][x]);
-				}
+		for (var x = 0; x < $scope.grid.size.x; x++) {
+			if($scope.grid.rows[index][x].selected){
+				selected.push($scope.grid.rows[index][x]);
 			}
 		}
 
 		if(selected.length > 0){
-			for (var x = 0; x < $scope.gridSize.width; x++) {
+			for (var x = 0; x < $scope.grid.size.x; x++) {
 				$scope.grid.rows[index][x].selected = false;
 			}
 		}else{
-			for (var x = 0; x < $scope.gridSize.width; x++) {
-				$scope.grid.rows[index][x].selected = true;
+			for (var x = 0; x < $scope.grid.size.x; x++) {
+				if($scope.grid.rows[index][x].area){
+					$scope.grid.rows[index][x].selected = true;
+				}
 			}
 		}
 	};
 
 	$scope.selectCell = function(x,y){
-		if($scope.grid.rows[y][x].box){
-			if($scope.grid.rows[y][x].selected){
-				$scope.grid.rows[y][x].selected = false;
-			}else{
-				$scope.grid.rows[y][x].selected = true;
-			}
+		if($scope.grid.rows[y][x].area){
+			$scope.grid.rows[y][x].selected = !$scope.grid.rows[y][x].selected;
 		}
 	};
 
 	$scope.calcPrice = function(){
 		var price = 0;
-		for (var y = 0; y < $scope.gridSize.height; y++) {
-			for (var x = 0; x < $scope.gridSize.width; x++) {
-				if($scope.grid.rows[y][x].box){
-					price += 100;
+		for (var y = 0; y < $scope.grid.size.y; y++) {
+			for (var x = 0; x < $scope.grid.size.x; x++) {
+				if($scope.grid.rows[y][x].area){
+					//price += 100;
 					if($scope.grid.rows[y][x].plant){
 						price += $scope.grid.rows[y][x].plant.price;
 					}
@@ -219,51 +219,155 @@ angular.module('app', [])
 
 	$scope.drawGrid = function(){
 		$scope.grid.rows = [];
-		for (var y = 0; y < $scope.gridSize.height; y++) {
+		for (var y = 0; y < $scope.grid.size.y; y++) {
 			var row = [];
-			for (var x = 0; x < $scope.gridSize.width; x++) {
+			for (var x = 0; x < $scope.grid.size.x; x++) {
 				row.push({
-					x: x,
-					y: y,
 					selected: false,
 					plant: null,
-					box: false
+					area: false
 				});
 			}
 			$scope.grid.rows.push(row);
 		}
 	};
 
-	$scope.drawRack = function(){
-		$scope.rackIndex = {
-			x1: Math.floor(($scope.gridSize.width - $scope.rackSize.width)/2),
-			y1: $scope.gridSize.height - $scope.rackSize.height
+	$scope.drawArea = function(){
+		$scope.area.offset = {
+			x: Math.floor(($scope.grid.size.x - $scope.area.size.x)/2),
+			y: $scope.grid.size.y - $scope.area.size.y
 		};
-		$scope.rackIndex.x2 = $scope.rackIndex.x1 + $scope.rackSize.width;
-		$scope.rackIndex.y2 = $scope.rackIndex.y1 + $scope.rackSize.height;
 
-		for (var y = 0; y < $scope.gridSize.height; y++) {
-			for (var x = 0; x < $scope.gridSize.width; x++) {
-				$scope.grid.rows[y][x].box = false;
+		//remove area fill
+		for (var y = 0; y < $scope.grid.size.y; y++) {
+			for (var x = 0; x < $scope.grid.size.x; x++) {
+				$scope.grid.rows[y][x].area = false;
 			}
 		}
 
-		for (var y = $scope.rackIndex.y1; y < $scope.rackIndex.y2; y++) {
+		for (var y = $scope.area.offset.y; y < $scope.grid.size.y; y++) {
 			var row = [];
-			for (var x = $scope.rackIndex.x1; x < $scope.rackIndex.x2; x++) {
-				$scope.grid.rows[y][x].box = true;
+			for (var x = $scope.area.offset.x; x < $scope.area.offset.x + $scope.area.size.x; x++) {
+				$scope.grid.rows[y][x].area = true;
 			}
+		}
+	};
+
+	$scope.deleteSelected = function(){
+		for (var y = 0; y < $scope.grid.size.y; y++) {
+			for (var x = 0; x < $scope.grid.size.x; x++) {
+				if($scope.grid.rows[y][x].selected){
+					$scope.grid.rows[y][x].selected = false;
+					$scope.grid.rows[y][x].plant = null;
+				}
+			}
+		}
+		$scope.calcPrice();
+		$scope.$apply();
+	};
+
+	document.onkeyup = function(event){
+		event.preventDefault();
+		console.log(event.keyCode);
+		if(event.keyCode == 100 || event.keyCode == 46 || event.keyCode == 8) //"D" or "Delete" or "BackSpase"
+		{
+			$scope.deleteSelected();
 		}
 	};
 
 	$scope.drawGrid();
 
-	$scope.$watch('rackSize', function(){
-		$scope.width = $scope.rackSize.width * 40;
-		$scope.drawRack();
+	$scope.$watch('area', function(){
+		$scope.bak.width = $scope.area.size.x * $scope.config.box.size.width + $scope.area.size.x;
+		$scope.bak.left = $scope.area.offset.x * $scope.config.box.size.width + $scope.area.offset.x;
+		$scope.drawArea();
 		$scope.calcPrice();
-	}, true)
+	}, true);
 
 }])
+
+.directive('carousel', function() {
+	return {
+		restrict: 'E',
+		scope: {
+			items: '=',
+			action: '&'
+		},
+		templateUrl: 'app/templates/carousel.html',
+		controller: ['$scope', '$element', '$attrs', function($scope, $element, $attrs) {
+
+			var carouselWrapper = $element[0].querySelector('.carousel-wrapper');
+			var carouselContent = $element[0].querySelector('.carousel-content');
+
+			$scope.config = {
+				items: 8,
+				itemWidth: 100
+			};
+			$scope.carousel = {
+				from: 0,
+				left: 0,
+				prev: function(){
+					$scope.carousel.from--;
+					$scope.carousel.move();
+				},
+				next: function(){
+					$scope.carousel.from++;
+					$scope.carousel.move();
+				},
+				move: function(){
+					console.log($scope.carousel.from);
+					if($scope.carousel.from < 0){
+						$scope.carousel.from = 0;
+					}
+					if($scope.carousel.from + $scope.config.items > $scope.items.length){
+						$scope.carousel.from = $scope.items.length - $scope.config.items;
+					}
+					$scope.carousel.left = - ($scope.carousel.from * $scope.config.itemWidth);
+					carouselContent.style.left = $scope.carousel.left +'px';
+				}
+			};
+
+			carouselWrapper.style.width = $scope.config.itemWidth * $scope.config.items +'px';
+			carouselContent.style.width = $scope.config.itemWidth * $scope.items.length +'px';
+
+			$scope.select = function(index){
+				$scope.action({index:index});
+			};
+
+			//swipe
+			var swipe = {
+				moving: false,
+				startClick: 0,
+				startPosition: $scope.carousel.left
+			};
+			carouselContent.addEventListener('mousedown', function(event){
+				swipe.moving = true;
+				swipe.startClick = event.screenX;
+				swipe.startPosition = $scope.carousel.left;
+				carouselContent.classList.remove('static');
+			});
+			carouselContent.addEventListener('mouseup', function(event){
+				swipe.moving = false;
+				carouselContent.classList.add('static');
+				//rounded position
+				var offset = Math.round($scope.carousel.left/$scope.config.itemWidth);
+				if(offset > 0){
+					$scope.carousel.from = 0;
+				}else{
+					$scope.carousel.from = Math.abs(offset);
+				}
+				$scope.carousel.move();
+			});
+			carouselContent.addEventListener('mousemove', function(event){
+				if(swipe.moving){
+					$scope.carousel.left = swipe.startPosition + event.screenX - swipe.startClick;
+					carouselContent.style.left = $scope.carousel.left +'px';
+				}
+				
+			});
+
+		}]
+	}
+})
 
 ;
