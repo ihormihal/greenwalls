@@ -72,12 +72,10 @@ html, body {
 
 .grid {
 	position: absolute;
+	z-index: 1000;
 	bottom: $offsetBotttom;
 	left: 50%;
 	@include transform(translate(-50%,0));
-	* {
-		@include no-select();
-	}
 	table {
 		table-layout: fixed;
 		margin: 0 auto;
@@ -133,7 +131,7 @@ html, body {
 		&.area {
 			background-color: rgba(255,255,255,0.4);
 			@include transition(background-color 0.3s ease);
-			
+
 			&:hover {
 				background-color: rgba(255,255,255,0.8);
 			}
@@ -175,10 +173,13 @@ html, body {
 			}
 		}
 	}
-	
+
 }
 
 .canvas {
+	* {
+		@include no-select();
+	}
 	overflow: hidden;
 	position: relative;
 	.picture {
@@ -196,27 +197,54 @@ html, body {
 		}
 	}
 	.bottom-bak {
-		background-color: #333;
-		background-image: url('../images/bak-stone.png');
-		background-repeat: repeat-x;
 		position: relative;
 		margin-left: 24px;
-		@include box-shadow(5px 5px 10px rgba(0, 0, 0, 0.5));
+		.back-image {
+			height: 100%;
+			background-color: #333;
+			background-repeat: repeat-x;
+			@include box-shadow(5px 5px 10px rgba(0, 0, 0, 0.5));
+		}
 	}
 	.controls {
 		margin-top: 40px;
-		.bottom {
+		position: relative;
+		overflow: hidden;
+		.bottom-control {
 			position: absolute;
-			bottom: 0;
+			z-index: 1100;
+			bottom: 32px;
 			width: 100%;
-			left: 0;
+			@include transition(all 0.3s ease);
+			&.slide-right {
+				left: -100%;
+				@include opacity(0);
+				&.active {
+					left: 0;
+					@include opacity(1);
+				}
+			}
+			&.slide-left {
+				right: -100%;
+				@include opacity(0);
+				&.active {
+					right: 0;
+					@include opacity(1);
+				}
+			}
+
 		}
 	}
 	.control-top {
-		position: relative;
+		position: absolute;
+		right: 167px;
+		a {
+			margin-left: 8px;
+		}
 	}
 	.control {
 		position: relative;
+		z-index: 2000;
 		width: 100px;
 		padding: 7px;
 		@include border-radius(50px);
@@ -225,7 +253,7 @@ html, body {
 			@include border-radius(50px);
 			background-color: color(green);
 		}
-		
+
 		&.control-left {
 			float: left;
 		}
@@ -248,17 +276,45 @@ html, body {
 				padding: 0 5px;
 				text-align: center;
 				margin-bottom: 20px;
-				img {
+				.img, img{
 					width: 64px;
 					height: 64px;
+					overflow: hidden;
 					@include border-radius(100%);
+					cursor: pointer;
+				}
+				.img {
+					margin: 0 auto;
+					position: relative;
+					.icon {
+						position: absolute;
+						top: 0;
+						left: 0;
+						width: 100%;
+						height: 100%;
+						background-color: rgba(0,0,0,0.4);
+						color: #fff;
+						font-size: 32px;
+						line-height: 64px;
+						text-align: center;
+						@include transition(background-color 0.3s ease);
+						&:hover {
+							background-color: rgba(0,0,0,0.1);
+						}
+					}
 				}
 				.item-title {
 					margin-top: 8px;
 					font-size: 10px;
 					line-height: 14px;
 					text-transform: uppercase;
+					min-height: 2.5em;
 				}
+			}
+			.divider {
+				height: 2px;
+				background-color: color(green);
+				margin: 30px 10px;
 			}
 		}
 	}
@@ -271,9 +327,6 @@ html, body {
 		width: 900px;
 		.presets {
 			overflow: hidden;
-			* {
-				@include no-select();
-			}
 			.item {
 				width: 100px;
 				height: 110px;

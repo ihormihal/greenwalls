@@ -1,5 +1,5 @@
-var composition_1 = '{"grid":{"size":{"x":12,"y":10}},"area":{"size":{"x":6,"y":5},"offset":{"x":3,"y":5}},"cells":[{"x":4,"y":5,"plant":7},{"x":5,"y":5,"plant":1},{"x":6,"y":5,"plant":1},{"x":7,"y":5,"plant":7},{"x":3,"y":6,"plant":7},{"x":4,"y":6,"plant":7},{"x":5,"y":6,"plant":1},{"x":6,"y":6,"plant":1},{"x":7,"y":6,"plant":7},{"x":8,"y":6,"plant":7},{"x":3,"y":7,"plant":7},{"x":4,"y":7,"plant":7},{"x":5,"y":7,"plant":1},{"x":6,"y":7,"plant":1},{"x":7,"y":7,"plant":7},{"x":8,"y":7,"plant":7},{"x":3,"y":8,"plant":7},{"x":4,"y":8,"plant":7},{"x":5,"y":8,"plant":1},{"x":6,"y":8,"plant":1},{"x":7,"y":8,"plant":7},{"x":8,"y":8,"plant":7},{"x":3,"y":9,"plant":0},{"x":4,"y":9,"plant":0},{"x":5,"y":9,"plant":0},{"x":6,"y":9,"plant":0},{"x":7,"y":9,"plant":0},{"x":8,"y":9,"plant":0}]}';
-var composition_2 = '{"grid":{"size":{"x":12,"y":10}},"area":{"size":{"x":8,"y":6},"offset":{"x":2,"y":4}},"cells":[{"x":2,"y":4,"plant":6},{"x":3,"y":4,"plant":0},{"x":4,"y":4,"plant":0},{"x":5,"y":4,"plant":0},{"x":6,"y":4,"plant":0},{"x":7,"y":4,"plant":0},{"x":8,"y":4,"plant":0},{"x":9,"y":4,"plant":6},{"x":2,"y":5,"plant":8},{"x":3,"y":5,"plant":6},{"x":4,"y":5,"plant":4},{"x":5,"y":5,"plant":4},{"x":6,"y":5,"plant":4},{"x":7,"y":5,"plant":4},{"x":8,"y":5,"plant":6},{"x":9,"y":5,"plant":8},{"x":2,"y":6,"plant":8},{"x":4,"y":6,"plant":6},{"x":5,"y":6,"plant":4},{"x":6,"y":6,"plant":4},{"x":7,"y":6,"plant":6},{"x":9,"y":6,"plant":8},{"x":2,"y":7,"plant":8},{"x":3,"y":7,"plant":6},{"x":5,"y":7,"plant":6},{"x":6,"y":7,"plant":6},{"x":8,"y":7,"plant":6},{"x":9,"y":7,"plant":8},{"x":2,"y":8,"plant":10},{"x":3,"y":8,"plant":10},{"x":4,"y":8,"plant":6},{"x":7,"y":8,"plant":6},{"x":8,"y":8,"plant":10},{"x":9,"y":8,"plant":10},{"x":2,"y":9,"plant":12},{"x":3,"y":9,"plant":12},{"x":4,"y":9,"plant":12},{"x":5,"y":9,"plant":12},{"x":6,"y":9,"plant":12},{"x":7,"y":9,"plant":12},{"x":8,"y":9,"plant":12},{"x":9,"y":9,"plant":12}]}';
+var composition_1 = '{"bak": 0, "grid":{"size":{"x":12,"y":10}},"area":{"size":{"x":6,"y":5},"offset":{"x":3,"y":5}},"cells":[{"x":4,"y":5,"plant":7},{"x":5,"y":5,"plant":1},{"x":6,"y":5,"plant":1},{"x":7,"y":5,"plant":7},{"x":3,"y":6,"plant":7},{"x":4,"y":6,"plant":7},{"x":5,"y":6,"plant":1},{"x":6,"y":6,"plant":1},{"x":7,"y":6,"plant":7},{"x":8,"y":6,"plant":7},{"x":3,"y":7,"plant":7},{"x":4,"y":7,"plant":7},{"x":5,"y":7,"plant":1},{"x":6,"y":7,"plant":1},{"x":7,"y":7,"plant":7},{"x":8,"y":7,"plant":7},{"x":3,"y":8,"plant":7},{"x":4,"y":8,"plant":7},{"x":5,"y":8,"plant":1},{"x":6,"y":8,"plant":1},{"x":7,"y":8,"plant":7},{"x":8,"y":8,"plant":7},{"x":3,"y":9,"plant":0},{"x":4,"y":9,"plant":0},{"x":5,"y":9,"plant":0},{"x":6,"y":9,"plant":0},{"x":7,"y":9,"plant":0},{"x":8,"y":9,"plant":0}]}';
+var composition_2 = '{"bak": 2, "grid":{"size":{"x":12,"y":10}},"area":{"size":{"x":8,"y":6},"offset":{"x":2,"y":4}},"cells":[{"x":2,"y":4,"plant":6},{"x":3,"y":4,"plant":0},{"x":4,"y":4,"plant":0},{"x":5,"y":4,"plant":0},{"x":6,"y":4,"plant":0},{"x":7,"y":4,"plant":0},{"x":8,"y":4,"plant":0},{"x":9,"y":4,"plant":6},{"x":2,"y":5,"plant":8},{"x":3,"y":5,"plant":6},{"x":4,"y":5,"plant":4},{"x":5,"y":5,"plant":4},{"x":6,"y":5,"plant":4},{"x":7,"y":5,"plant":4},{"x":8,"y":5,"plant":6},{"x":9,"y":5,"plant":8},{"x":2,"y":6,"plant":8},{"x":4,"y":6,"plant":6},{"x":5,"y":6,"plant":4},{"x":6,"y":6,"plant":4},{"x":7,"y":6,"plant":6},{"x":9,"y":6,"plant":8},{"x":2,"y":7,"plant":8},{"x":3,"y":7,"plant":6},{"x":5,"y":7,"plant":6},{"x":6,"y":7,"plant":6},{"x":8,"y":7,"plant":6},{"x":9,"y":7,"plant":8},{"x":2,"y":8,"plant":10},{"x":3,"y":8,"plant":10},{"x":4,"y":8,"plant":6},{"x":7,"y":8,"plant":6},{"x":8,"y":8,"plant":10},{"x":9,"y":8,"plant":10},{"x":2,"y":9,"plant":12},{"x":3,"y":9,"plant":12},{"x":4,"y":9,"plant":12},{"x":5,"y":9,"plant":12},{"x":6,"y":9,"plant":12},{"x":7,"y":9,"plant":12},{"x":8,"y":9,"plant":12},{"x":9,"y":9,"plant":12}]}';
 
 
 angular.module('app', [])
@@ -35,6 +35,7 @@ angular.module('app', [])
 
 	$scope.price = 0;
 
+
 	$scope.grid = {
 		rows: [],
 		size: {
@@ -66,6 +67,68 @@ angular.module('app', [])
 			title: 'Composition #2',
 			image: 'design/images/compositions/comp-2.png',
 			json: composition_2
+		}
+	];
+
+	$scope.rooms = [
+		{
+			id: 0,
+			title: 'Room #1',
+			icon: 'design/images/compositions/comp-1.png',
+			image: 'design/images/rooms/room-1.jpg',
+			json: composition_1
+		},
+		{
+			id: 1,
+			title: 'Room #2',
+			icon: 'design/images/compositions/comp-2.png',
+			image: 'design/images/rooms/room-2.jpg',
+			json: composition_2
+		}
+	];
+
+	$scope.baks = [
+		{
+			id: 0,
+			title: 'Stone',
+			img: 'design/images/baks/bak-stone.png',
+			image: 'design/images/baks/bak-stone.png',
+			price: 120
+		},
+		{
+			id: 1,
+			title: 'Light stone',
+			img: 'design/images/baks/bak-stone-light.png',
+			image: 'design/images/baks/bak-stone-light.png',
+			price: 120
+		},
+		{
+			id: 2,
+			title: 'Wood',
+			img: 'design/images/baks/bak-wood.png',
+			image: 'design/images/baks/bak-wood.png',
+			price: 120
+		},
+		{
+			id: 3,
+			title: 'Light wood',
+			img: 'design/images/baks/bak-wood-light.png',
+			image: 'design/images/baks/bak-wood-light.png',
+			price: 120
+		},
+		{
+			id: 4,
+			title: 'Plastik',
+			img: 'design/images/baks/bak-plastik.png',
+			image: 'design/images/baks/bak-plastik.png',
+			price: 120
+		},
+		{
+			id: 5,
+			title: 'Light plastik',
+			img: 'design/images/baks/bak-plastik-light.png',
+			image: 'design/images/baks/bak-plastik-light.png',
+			price: 120
 		}
 	];
 
@@ -177,6 +240,12 @@ angular.module('app', [])
 		}
 	];
 
+	$scope.room = $scope.rooms[0];
+	$scope.bak = {image: ''};
+
+	$scope.plantsShowed = false;
+	$scope.baksShowed = false;
+
 	$scope.plusAreaHeight = function(){
 		if($scope.area.size.y < $scope.grid.size.y){
 			$scope.area.size.y++;
@@ -196,6 +265,14 @@ angular.module('app', [])
 		if($scope.area.size.x > $scope.config.area.minWidth){
 			$scope.area.size.x--;
 		}
+	};
+
+	$scope.placeBack = function(index){
+		$scope.bak = $scope.baks[index];
+	};
+
+	$scope.selectRoom = function(index){
+		$scope.room = $scope.rooms[index];
 	};
 
 	$scope.placePlant = function(index){
@@ -338,6 +415,12 @@ angular.module('app', [])
 				}
 			}
 		}
+		//set bak
+		for (var i = 0; i < $scope.baks.length; i++) {
+			if($scope.baks[i].id == data.bak){
+				$scope.bak = $scope.baks[i];
+			}
+		}
 	};
 
 	$scope.deleteSelected = function(){
@@ -466,7 +549,7 @@ angular.module('app', [])
 					$scope.carousel.left = swipe.startPosition + event.screenX - swipe.startClick;
 					carouselContent.style.left = $scope.carousel.left +'px';
 				}
-				
+
 			});
 
 		}]

@@ -14,17 +14,17 @@
 							<p class="h4">Удобный конструктор для Вашего индивидуального проекта GreenWalls.</p>
 						</div>
 					</section>
-					
+
 					<section id="canvas" class="canvas mt2 mb2">
 						<div id="picture" class="picture">
-							<img src="design/images/rooms/room-1.jpg" alt="" class="bg">
+							<img ng-src="{{room.image}}" alt="" class="bg">
 							<div class="grid">
 								<table>
 									<tr ng-repeat="(y, row) in grid.rows">
 										<td ng-click="selectRow(y)"><div class="plus">+</div></td>
-										<td 
-										ng-repeat="(x, cell) in row" 
-										ng-class="{'area': cell.area, 'selected': cell.selected, 'plant': cell.plant}" 
+										<td
+										ng-repeat="(x, cell) in row"
+										ng-class="{'area': cell.area, 'selected': cell.selected, 'plant': cell.plant}"
 										ng-click="selectCell(x, y)">
 											<div class="cell cell-x-{{x}} cell-y-{{y}}" title="{{x}}:{{y}}">
 												<img ng-show="cell.plant" ng-src="{{cell.plant.image}}" alt="">
@@ -33,27 +33,37 @@
 										<td ng-click="selectRow(y)"><div class="plus">+</div></td>
 									</tr>
 								</table>
-								<div class="bottom-bak offset-{{area.offset.x}} width-{{area.size.x}}"></div>
+								<div class="bottom-bak offset-{{area.offset.x}} width-{{area.size.x}}">
+									<div ng-show="bak.img" class="back-image" style="background-image: url({{bak.img}});"></div>
+								</div>
 							</div>
 						</div>
 						<div class="container controls">
 							<div class="control-top">
-								<a href="#" class="btn" id="capture">Capture</a>
-								<a href="#" class="btn" id="hide-grid">Hide grid</a>
-								<div class="btn" ng-click="saveComposition();">Save</div>
-								<div class="btn" ng-click="clearArea();">Clear</div>
+								<a id="capture" href="#" class="btn-fl c-red-bg hover-bg-darken"><i class="fa fa-camera"></i></a>
+								<a id="hide-grid" href="#" class="btn-fl c-red-bg hover-bg-darken"><i class="fa fa-eye-slash"></i></a>
+								<a ng-click="saveComposition();" class="btn-fl c-red-bg hover-bg-darken"><i class="fa fa-floppy-o"></i></a>
+								<a ng-click="clearArea();" class="btn-fl c-red-bg hover-bg-darken"><i class="fa fa-eraser"></i></a>
 							</div>
 							<div class="control control-left">
 								<div class="inner">
 									<div class="title">Выбор композиции</div>
 									<div class="presets">
-										<div 
-										class="item" 
+										<div
+										class="item"
 										ng-repeat="composition in compositions"
 										ng-click="selectComposition($index)"
 										>
 											<img ng-src="{{composition.image}}" alt="">
 											<div class="item-title">{{composition.title}}</div>
+										</div>
+										<div class="divider"></div>
+										<div class="item">
+											<div class="img" ng-click="plantsShowed = !plantsShowed">
+												<img src="design/images/plants.jpg" alt="">
+												<div class="icon"><i class="fa" ng-class="{'fa-angle-right': !plantsShowed, 'fa-angle-left': plantsShowed}"></i></div>
+											</div>
+											<div class="item-title">Растения</div>
 										</div>
 									</div>
 								</div>
@@ -62,34 +72,41 @@
 								<div class="inner">
 									<div class="title">Выбор интерьера</div>
 									<div class="presets">
-										<div class="item">
-											<img src="http://placehold.it/100x100" alt="">
-											<div class="item-title">Modern room</div>
+										<div
+										class="item"
+										ng-repeat="room in rooms"
+										ng-click="selectRoom($index)"
+										>
+											<img ng-src="{{room.icon}}" alt="">
+											<div class="item-title">{{room.title}}</div>
 										</div>
+										<div class="divider"></div>
 										<div class="item">
-											<img src="http://placehold.it/100x100" alt="">
-											<div class="item-title">Classic room</div>
-										</div>
-										<div class="item">
-											<img src="http://placehold.it/100x100" alt="">
-											<div class="item-title">Electric room</div>
-										</div>
-										<div class="item">
-											<img src="http://placehold.it/100x100" alt="">
-											<div class="item-title">Ваш интерьер</div>
+											<div class="img" ng-click="baksShowed = !baksShowed">
+												<img src="design/images/bak.jpg" alt="">
+												<div class="icon"><i class="fa" ng-class="{'fa-angle-left': !baksShowed, 'fa-angle-right': baksShowed}"></i></div>
+											</div>
+											<div class="item-title">Разиестить бак</div>
 										</div>
 									</div>
 								</div>
 							</div>
 
-							<div class="bottom">
+							<div class="bottom-control slide-right" ng-class="{'active': plantsShowed}">
 								<div class="control-horizontal">
 									<carousel items="plants" action="placePlant(index)">
 									</carousel>
 								</div>
 							</div>
 
-							
+							<div class="bottom-control slide-left" ng-class="{'active': baksShowed}">
+								<div class="control-horizontal">
+									<carousel items="baks" action="placeBack(index)">
+									</carousel>
+								</div>
+							</div>
+
+
 						</div>
 					</section>
 
@@ -134,7 +151,7 @@
 									</div>
 								</div>
 							</div>
-							
+
 						</div>
 					</section>
 					<section class="form pt3 pb3">

@@ -8,12 +8,13 @@ $(function() {
 
 	$('#hide-grid').click(function(event){
 		event.preventDefault();
+		var icon = $(this).find('i');
 		if($('#canvas').hasClass('plain')){
 			$('#canvas').removeClass('plain');
-			//$('.control').removeClass('hidden');
+			icon.removeClass('fa-eye').addClass('fa-eye-slash');
 		}else{
 			$('#canvas').addClass('plain');
-			//$('.control').addClass('hidden');
+			icon.removeClass('fa-eye-slash').addClass('fa-eye');
 		}
 	});
 
