@@ -1,8 +1,12 @@
 $boxHeight: 40px;
-$boxWidth: 40px;
-$overFlow: 5px;
+$boxWidth: 48px;
+$overFlow: 1.2;
 
 $offsetBotttom: 196px;
+
+html, body {
+	min-width: 1240px;
+}
 
 .size-control {
 	line-height: 32px;
@@ -66,124 +70,138 @@ $offsetBotttom: 196px;
 	}
 }
 
+.grid {
+	position: absolute;
+	bottom: $offsetBotttom;
+	left: 50%;
+	@include transform(translate(-50%,0));
+	* {
+		@include no-select();
+	}
+	table {
+		table-layout: fixed;
+		margin: 0 auto;
+	}
+	td {
+		padding: 0;
+		vertical-align: middle;
+		text-align: center;
+		.plus {
+			border: none;
+			width: 24px;
+			height: $boxHeight;
+			line-height: $boxHeight;
+			vertical-align: middle;
+			font-size: 20px;
+			color: rgba(255,255,255,0.6);
+			@include transition(color 0.3s ease);
+			cursor: pointer;
+			&:hover {
+				color: #fff;
+				background-color: transparent;
+			}
+		}
+		.cell {
+			cursor: default;
+			width: $boxWidth;
+			height: $boxHeight;
+			border: 1px solid rgba(255,255,255,0.4);
+			border-width: 0 1px 1px 0;
+			position: relative;
+			&.cell-x-0 {
+				border-left: 1px solid rgba(255,255,255,0.4);
+			}
+			&.cell-y-0 {
+				border-top: 1px solid rgba(255,255,255,0.4);
+			}
+			&:after {
+				display: none;
+				content: '';
+				position: absolute;
+				z-index: 1000;
+				top: 0;
+				left: 0;
+				width: 100%;
+				height: 100%;
+				@include border-radius(3px);
+				@include box-shadow(0 0 10px rgba(255,255,255,1) inset, 0 0 10px rgba(255,255,255,1));
+			}
+		}
+		img {
+			display: none;
+		}
+		&.area {
+			background-color: rgba(255,255,255,0.4);
+			@include transition(background-color 0.3s ease);
+			
+			&:hover {
+				background-color: rgba(255,255,255,0.8);
+			}
+			&.selected, &.plant {
+				background-image: url(../images/bak-black.jpg);
+				background-size: cover;
+				background-repeat: no-repeat;
+				border-color: transparent;
+				position: relative;
+				.cell {
+					border: none;
+				}
+				&:after {
+					display: block;
+					content: '';
+					position: absolute;
+					top: 0;
+					left: 0;
+					width: 125%;
+					height: 130%;
+					background-size: 100%;
+					background-repeat: no-repeat;
+					background-image: url(../images/shadow.png);
+				}
+				//@include box-shadow(5px 5px 10px rgba(0,0,0,0.5));
+			}
+			&.selected.plant .cell:after {
+				display: block;
+			}
+			&.plant img {
+				display: block;
+				position: absolute;
+				z-index: 10;
+				top: 50%;
+				left: 50%;
+				width: $boxWidth * $overFlow;
+				pointer-events: none;
+				@include transform(translate(-50%,-50%));
+			}
+		}
+	}
+	
+}
+
 .canvas {
 	overflow: hidden;
 	position: relative;
-	height: 800px;
 	.picture {
-		height: 800px;
+		height: 100%;
 		position: absolute;
 		top: 0;
 		left: 0;
 		width: 100%;
-		.background {
+		background-position: center center;
+		.bg {
 			position: absolute;
 			bottom: 0;
 			left: 50%;
-			width: 100%;
 			@include transform(translate(-50%,0));
 		}
-		.grid {
-			position: absolute;
-			bottom: $offsetBotttom;
-			left: 50%;
-			@include transform(translate(-50%,0));
-			table {
-				table-layout: fixed;
-				margin: 0 auto;
-				td {
-					padding: 0;
-					vertical-align: middle;
-					text-align: center;
-					border-color: rgba(255,255,255,0.4);
-					&.plus {
-						border: none;
-						width: $boxWidth;
-						font-size: 20px;
-						color: rgba(255,255,255,0.6);
-						@include transition(color 0.3s ease);
-						cursor: pointer;
-						&:hover {
-							color: #fff;
-							background-color: transparent;
-						}
-					}
-					.cell {
-						cursor: default;
-						width: $boxWidth;
-						height: $boxHeight;
-						position: relative;
-						&:after {
-							display: none;
-							content: '';
-							position: absolute;
-							z-index: 1000;
-							top: 0;
-							left: 0;
-							width: 100%;
-							height: 100%;
-							@include border-radius(3px);
-							@include box-shadow(0 0 10px rgba(255,255,255,1) inset, 0 0 10px rgba(255,255,255,1));
-						}
-					}
-					img {
-						display: none;
-					}
-					&.area {
-						background-color: rgba(255,255,255,0.4);
-						@include transition(background-color 0.3s ease);
-						
-						&:hover {
-							background-color: rgba(255,255,255,0.8);
-						}
-						&.selected, &.plant {
-							background-image: url(../images/bak-black.jpg);
-							background-size: cover;
-							background-repeat: no-repeat;
-							border-color: transparent;
-							position: relative;
-							@include box-shadow(5px 5px 10px rgba(0,0,0,0.5));
-						}
-						&.selected.plant .cell:after {
-							display: block;
-						}
-						&.plant img {
-							display: block;
-							position: absolute;
-							z-index: 10;
-							top: 50%;
-							left: 50%;
-							max-width: $boxWidth + $overFlow;
-							@include transform(translate(-50%,-50%));
-						}
-					}
-				}
-			}
-			
-		}
-		.bottom-bak {
-			height: $boxHeight;
-			margin-left: $boxWidth;
-			background-image: url('../images/bak-stone.png');
-			background-repeat: repeat-x;
-			position: relative;
-			@include box-shadow(5px 5px 10px rgba(0,0,0,0.5));
-		}
-		&.plain {
-			.grid {
-				table {
-					td {
-						border-color: transparent;
-						&.plus {
-							color: transparent;
-						}
-						&.area {
-							background-color: transparent;
-						}
-					}
-				}
-			}
-		}
+	}
+	.bottom-bak {
+		background-color: #333;
+		background-image: url('../images/bak-stone.png');
+		background-repeat: repeat-x;
+		position: relative;
+		margin-left: 24px;
+		@include box-shadow(5px 5px 10px rgba(0, 0, 0, 0.5));
 	}
 	.controls {
 		margin-top: 40px;
@@ -275,37 +293,161 @@ $offsetBotttom: 196px;
 				}
 			}
 		}
-		.carousel {
-			position: relative;
-			overflow: hidden;
-			height: 100px;
-			.carousel-wrapper {
-				position: relative;
-				overflow: hidden;
-				height: 100px;
-				float: left;
-			}
-			.carousel-content {
-				position: absolute;
-				left: 0;
-				top: 0;
-				height: 100px;
-				&.static {
-					@include transition(left 0.3s ease);
+	}
+}
+
+.canvas.plain {
+	.grid {
+		table {
+			td {
+				&.area {
+					background-color: transparent;
+				}
+				.plus {
+					color: transparent;
+				}
+				.cell {
+					border: none;
 				}
 			}
-			.nav {
-				height: 100px;
-				width: 50px;
-				float: left;
-				cursor: pointer;
-				text-align: center;
-				line-height: 100px;
-				color: #fff;
-				font-size: 20px;
-				&.nav-left {
+		}
+	}
+}
+
+.carousel {
+	position: relative;
+	overflow: hidden;
+	height: 100px;
+	.carousel-wrapper {
+		position: relative;
+		overflow: hidden;
+		height: 100px;
+		float: left;
+	}
+	.carousel-content {
+		position: absolute;
+		left: 0;
+		top: 0;
+		height: 100px;
+		&.static {
+			@include transition(left 0.3s ease);
+		}
+	}
+	.nav {
+		height: 100px;
+		width: 50px;
+		float: left;
+		cursor: pointer;
+		text-align: center;
+		line-height: 100px;
+		color: #fff;
+		font-size: 20px;
+		&.disabled {
+			color: rgba(255,255,255,0.4);
+		}
+	}
+}
+
+$height: 720px;
+$ratio: 1.777777777;
+
+$zoom1: 1.25;
+$zoom2: 1.5;
+
+@media screen and (max-width: 1349px) {
+	.canvas {
+		height: $height;
+		.picture .bg {
+			height: $height;
+			width: $height * $ratio;
+		}
+		.grid {
+			bottom: 205px;
+		}
+		.bottom-bak {
+			height: $boxHeight;
+			@for $i from 1 through 15 {
+				&.offset-#{$i} {
+					left: $boxWidth*$i;
 				}
-				&.nav-right {
+			}
+			@for $i from 1 through 30 {
+				&.width-#{$i} {
+					width: $boxWidth*$i;
+				}
+			}
+		}
+	}
+}
+@media screen and (min-width: 1350px) {
+	.canvas {
+		height: $height * $zoom1;
+		.picture .bg {
+			height: $height * $zoom1;
+			width: $height * $zoom1 * $ratio;
+		}
+		.grid {
+			bottom: 260px;
+			td {
+				.plus {
+					height: $boxHeight * $zoom1;
+				}
+				.cell {
+					width: $boxWidth * $zoom1;
+					height: $boxHeight * $zoom1;
+				}
+				&.area.plant img {
+					width: $boxWidth * $overFlow * $zoom1;
+				}
+			}
+		}
+		.bottom-bak {
+			height: $boxHeight * $zoom1;
+			@for $i from 1 through 15 {
+				&.offset-#{$i} {
+					left: $boxWidth * $zoom1 * $i;
+				}
+			}
+			@for $i from 1 through 30 {
+				&.width-#{$i} {
+					width: $boxWidth * $zoom1 * $i;
+				}
+			}
+		}
+	}
+}
+@media screen and (min-width: 1850px) {
+	.canvas {
+		height: $height * $zoom2;
+		.picture .bg {
+			height: $height * $zoom2;
+			width: $height * $zoom2 * $ratio;
+		}
+		.grid {
+			bottom: 315px;
+			td {
+				.plus {
+					height: $boxHeight * $zoom2;
+				}
+				.cell {
+					width: $boxWidth * $zoom2;
+					height: $boxHeight * $zoom2;
+				}
+				&.area.plant img {
+					width: $boxWidth * $overFlow * $zoom2;
+				}
+			}
+		}
+		.bottom-bak {
+			height: $boxHeight * $zoom2;
+			@for $i from 1 through 15 {
+				&.offset-#{$i} {
+					left: $boxWidth * $zoom2 * $i;
+				}
+			}
+			@for $i from 1 through 30 {
+				&.width-#{$i} {
+					width: $boxWidth * $zoom2 * $i;
 				}
 			}
 		}

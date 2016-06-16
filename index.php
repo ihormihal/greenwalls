@@ -15,51 +15,45 @@
 						</div>
 					</section>
 					
-					<section class="canvas mt2 mb2">
+					<section id="canvas" class="canvas mt2 mb2">
 						<div id="picture" class="picture">
-							<img class="background" src="design/images/room-1.jpg" alt="">
+							<img src="design/images/rooms/room-1.jpg" alt="" class="bg">
 							<div class="grid">
 								<table>
 									<tr ng-repeat="(y, row) in grid.rows">
-										<td class="plus" ng-click="selectRow(y)">+</td>
+										<td ng-click="selectRow(y)"><div class="plus">+</div></td>
 										<td 
 										ng-repeat="(x, cell) in row" 
 										ng-class="{'area': cell.area, 'selected': cell.selected, 'plant': cell.plant}" 
 										ng-click="selectCell(x, y)">
-											<div class="cell" title="{{x}}:{{y}}">
+											<div class="cell cell-x-{{x}} cell-y-{{y}}" title="{{x}}:{{y}}">
 												<img ng-show="cell.plant" ng-src="{{cell.plant.image}}" alt="">
 											</div>
 										</td>
-										<td class="plus" ng-click="selectRow(y)">+</td>
+										<td ng-click="selectRow(y)"><div class="plus">+</div></td>
 									</tr>
 								</table>
-								<div class="bottom-bak" style="width: {{bak.width}}px; left: {{bak.left}}px"></div>
+								<div class="bottom-bak offset-{{area.offset.x}} width-{{area.size.x}}"></div>
 							</div>
 						</div>
 						<div class="container controls">
 							<div class="control-top">
 								<a href="#" class="btn" id="capture">Capture</a>
 								<a href="#" class="btn" id="hide-grid">Hide grid</a>
+								<div class="btn" ng-click="saveComposition();">Save</div>
+								<div class="btn" ng-click="clearArea();">Clear</div>
 							</div>
 							<div class="control control-left">
 								<div class="inner">
 									<div class="title">Выбор композиции</div>
 									<div class="presets">
-										<div class="item">
-											<img src="http://placehold.it/100x100" alt="">
-											<div class="item-title">Композиция 10x30</div>
-										</div>
-										<div class="item">
-											<img src="http://placehold.it/100x100" alt="">
-											<div class="item-title">Композиция 10x30</div>
-										</div>
-										<div class="item">
-											<img src="http://placehold.it/100x100" alt="">
-											<div class="item-title">Композиция 10x30</div>
-										</div>
-										<div class="item" ng-click="showPlants()">
-											<img src="http://placehold.it/100x100" alt="">
-											<div class="item-title">More</div>
+										<div 
+										class="item" 
+										ng-repeat="composition in compositions"
+										ng-click="selectComposition($index)"
+										>
+											<img ng-src="{{composition.image}}" alt="">
+											<div class="item-title">{{composition.title}}</div>
 										</div>
 									</div>
 								</div>

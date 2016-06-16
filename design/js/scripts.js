@@ -8,24 +8,27 @@ $(function() {
 
 	$('#hide-grid').click(function(event){
 		event.preventDefault();
-		if($('#picture').hasClass('plain')){
-			$('#picture').removeClass('plain');
+		if($('#canvas').hasClass('plain')){
+			$('#canvas').removeClass('plain');
 			//$('.control').removeClass('hidden');
 		}else{
-			$('#picture').addClass('plain');
+			$('#canvas').addClass('plain');
 			//$('.control').addClass('hidden');
 		}
 	});
 
 	$('#capture').click(function(event){
 		event.preventDefault();
+		var gridHidden = $('#canvas').hasClass('plain');
 		var pictureEl = $('#picture')[0];
 		//console.log(pictureEl);
 
-		$('#picture').addClass('plain');
+		$('#canvas').addClass('plain');
 		html2canvas(pictureEl, {
 			onrendered: function(canvas) {
-				$('#picture').removeClass('plain');
+				if(!gridHidden){
+					$('#canvas').removeClass('plain');
+				}
 				var dataURL = canvas.toDataURL();
 				var blobBin = atob(dataURL.split(',')[1]);
 				var array = [];
