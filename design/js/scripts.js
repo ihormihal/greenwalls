@@ -11,9 +11,11 @@ $(function() {
 		var icon = $(this).find('i');
 		if($('#canvas').hasClass('plain')){
 			$('#canvas').removeClass('plain');
+			$('.control-left, .control-right').removeClass('invisible');
 			icon.removeClass('fa-eye').addClass('fa-eye-slash');
 		}else{
 			$('#canvas').addClass('plain');
+			$('.control-left, .control-right').addClass('invisible');
 			icon.removeClass('fa-eye-slash').addClass('fa-eye');
 		}
 	});

@@ -42,7 +42,7 @@
 							<div class="control-top">
 								<a id="capture" href="#" class="btn-fl c-red-bg hover-bg-darken"><i class="fa fa-camera"></i></a>
 								<a id="hide-grid" href="#" class="btn-fl c-red-bg hover-bg-darken"><i class="fa fa-eye-slash"></i></a>
-								<a ng-click="saveComposition();" class="btn-fl c-red-bg hover-bg-darken"><i class="fa fa-floppy-o"></i></a>
+								<!-- <a ng-click="saveComposition();" class="btn-fl c-red-bg hover-bg-darken"><i class="fa fa-floppy-o"></i></a> -->
 								<a ng-click="clearArea();" class="btn-fl c-red-bg hover-bg-darken"><i class="fa fa-eraser"></i></a>
 							</div>
 							<div class="control control-left">

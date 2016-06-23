@@ -17,12 +17,12 @@ angular.module('app', [])
 	$scope.config = {
 		box: {
 			realSize: {
-				width: 200,
-				height: 166
+				width: 166,
+				height: 200
 			},
 			size: {
-				width: 48,
-				height: 40
+				width: 40,
+				height: 48
 			}
 		},
 		area: {
@@ -73,17 +73,27 @@ angular.module('app', [])
 	$scope.rooms = [
 		{
 			id: 0,
-			title: 'Room #1',
-			icon: 'design/images/compositions/comp-1.png',
-			image: 'design/images/rooms/room-1.jpg',
-			json: composition_1
+			title: 'White Room',
+			icon: 'design/images/rooms/white-room-icon.png',
+			image: 'design/images/rooms/white-room_lux.jpg'
 		},
 		{
 			id: 1,
-			title: 'Room #2',
-			icon: 'design/images/compositions/comp-2.png',
-			image: 'design/images/rooms/room-2.jpg',
-			json: composition_2
+			title: 'Green Room',
+			icon: 'design/images/rooms/green-room-icon.png',
+			image: 'design/images/rooms/green-room_lux.jpg'
+		},
+		{
+			id: 2,
+			title: 'Blue Room',
+			icon: 'design/images/rooms/blue-room-icon.png',
+			image: 'design/images/rooms/blue-room_lux.jpg'
+		},
+		{
+			id: 3,
+			title: 'Luxury Room',
+			icon: 'design/images/rooms/luxury-room-icon.png',
+			image: 'design/images/rooms/luxury-room.jpg'
 		}
 	];
 
@@ -92,42 +102,42 @@ angular.module('app', [])
 			id: 0,
 			title: 'Stone',
 			img: 'design/images/baks/bak-stone.png',
-			image: 'design/images/baks/bak-stone.png',
+			image: 'design/images/baks/bak-stone-icon.png',
 			price: 120
 		},
 		{
 			id: 1,
 			title: 'Light stone',
 			img: 'design/images/baks/bak-stone-light.png',
-			image: 'design/images/baks/bak-stone-light.png',
+			image: 'design/images/baks/bak-stone-light-icon.png',
 			price: 120
 		},
 		{
 			id: 2,
 			title: 'Wood',
 			img: 'design/images/baks/bak-wood.png',
-			image: 'design/images/baks/bak-wood.png',
+			image: 'design/images/baks/bak-wood-icon.png',
 			price: 120
 		},
 		{
 			id: 3,
 			title: 'Light wood',
 			img: 'design/images/baks/bak-wood-light.png',
-			image: 'design/images/baks/bak-wood-light.png',
+			image: 'design/images/baks/bak-wood-light-icon.png',
 			price: 120
 		},
 		{
 			id: 4,
 			title: 'Plastik',
 			img: 'design/images/baks/bak-plastik.png',
-			image: 'design/images/baks/bak-plastik.png',
+			image: 'design/images/baks/bak-plastik-icon.png',
 			price: 120
 		},
 		{
 			id: 5,
 			title: 'Light plastik',
 			img: 'design/images/baks/bak-plastik-light.png',
-			image: 'design/images/baks/bak-plastik-light.png',
+			image: 'design/images/baks/bak-plastik-light-icon.png',
 			price: 120
 		}
 	];

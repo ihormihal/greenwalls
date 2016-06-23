@@ -1,11 +1,16 @@
-$boxHeight: 40px;
-$boxWidth: 48px;
+$boxHeight: 48px;
+$boxWidth: 40px;
+$bakHeight: 72px;
 $overFlow: 1.2;
 
 $offsetBotttom: 196px;
 
 html, body {
 	min-width: 1240px;
+}
+
+.invisible {
+	visibility: hidden;
 }
 
 .size-control {
@@ -199,10 +204,12 @@ html, body {
 	.bottom-bak {
 		position: relative;
 		margin-left: 24px;
+		margin-top: 10px;
 		.back-image {
 			height: 100%;
 			background-color: #333;
 			background-repeat: repeat-x;
+			background-size: contain;
 			@include box-shadow(5px 5px 10px rgba(0, 0, 0, 0.5));
 		}
 	}
@@ -238,6 +245,7 @@ html, body {
 	.control-top {
 		position: absolute;
 		right: 167px;
+		z-index: 1200;
 		a {
 			margin-left: 8px;
 		}
@@ -415,10 +423,10 @@ $zoom2: 1.5;
 			width: $height * $ratio;
 		}
 		.grid {
-			bottom: 205px;
+			bottom: 137px;
 		}
 		.bottom-bak {
-			height: $boxHeight;
+			height: $bakHeight;
 			@for $i from 1 through 15 {
 				&.offset-#{$i} {
 					left: $boxWidth*$i;
@@ -440,7 +448,7 @@ $zoom2: 1.5;
 			width: $height * $zoom1 * $ratio;
 		}
 		.grid {
-			bottom: 260px;
+			bottom: 171px;
 			td {
 				.plus {
 					height: $boxHeight * $zoom1;
@@ -455,7 +463,7 @@ $zoom2: 1.5;
 			}
 		}
 		.bottom-bak {
-			height: $boxHeight * $zoom1;
+			height: $bakHeight * $zoom1;
 			@for $i from 1 through 15 {
 				&.offset-#{$i} {
 					left: $boxWidth * $zoom1 * $i;
@@ -477,7 +485,7 @@ $zoom2: 1.5;
 			width: $height * $zoom2 * $ratio;
 		}
 		.grid {
-			bottom: 315px;
+			bottom: 205px;
 			td {
 				.plus {
 					height: $boxHeight * $zoom2;
@@ -492,7 +500,7 @@ $zoom2: 1.5;
 			}
 		}
 		.bottom-bak {
-			height: $boxHeight * $zoom2;
+			height: $bakHeight * $zoom2;
 			@for $i from 1 through 15 {
 				&.offset-#{$i} {
 					left: $boxWidth * $zoom2 * $i;
