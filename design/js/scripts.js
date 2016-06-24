@@ -1,6 +1,17 @@
 var cssTransitionEnd = 'transitionend webkitTransitionEnd oTransitionEnd MSTransitionEnd';
 
+window.resizeBak = function(){
+	// var first = $('#picture table tr td.area').first();
+	// var last = $('#picture table tr td.area').last();
+	// console.log(last);
+	// var bak = document.getElementById('bottom-bak');
+	// bak.style.width = (last[0].offsetLeft + last[0].offsetWidth) + 'px';
+	// bak.style.left = first[0].offsetLeft;
+};
+
 $(function() {
+
+	//getArea();
 
 	var download = document.createElement("a");
 	document.body.appendChild(download);
@@ -51,4 +62,10 @@ $(function() {
 
 	});
 
+});
+
+
+
+$(window).resize(function(){
+	resizeBak();
 });

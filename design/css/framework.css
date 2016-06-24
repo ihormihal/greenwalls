@@ -4626,51 +4626,45 @@ html, body {
 .grid table {
   table-layout: fixed;
   margin: 0 auto;
+  border-collapse: collapse;
 }
-/* line 88, ../sass/style/_custom.scss */
+/* line 89, ../sass/style/_custom.scss */
 .grid td {
   padding: 0;
   vertical-align: middle;
   text-align: center;
-}
-/* line 92, ../sass/style/_custom.scss */
-.grid td .plus {
   border: none;
-  width: 24px;
-  height: 48px;
-  line-height: 48px;
+  border: 1px solid rgba(255, 255, 255, 0.4);
+  width: 29px;
+  height: 35px;
+  vertical-align: middle;
+}
+/* line 98, ../sass/style/_custom.scss */
+.grid td.plus {
+  border: none;
   vertical-align: middle;
   font-size: 20px;
   color: rgba(255, 255, 255, 0.6);
+  cursor: pointer;
   -moz-transition: color 0.3s ease;
   -o-transition: color 0.3s ease;
   -webkit-transition: color 0.3s ease;
   transition: color 0.3s ease;
-  cursor: pointer;
+  border-color: transparent;
 }
-/* line 102, ../sass/style/_custom.scss */
-.grid td .plus:hover {
+/* line 106, ../sass/style/_custom.scss */
+.grid td.plus:hover {
   color: #fff;
   background-color: transparent;
 }
-/* line 107, ../sass/style/_custom.scss */
+/* line 111, ../sass/style/_custom.scss */
 .grid td .cell {
   cursor: default;
-  width: 40px;
-  height: 48px;
-  border: 1px solid rgba(255, 255, 255, 0.4);
-  border-width: 0 1px 1px 0;
   position: relative;
-}
-/* line 114, ../sass/style/_custom.scss */
-.grid td .cell.cell-x-0 {
-  border-left: 1px solid rgba(255, 255, 255, 0.4);
+  width: 100%;
+  height: 100%;
 }
 /* line 117, ../sass/style/_custom.scss */
-.grid td .cell.cell-y-0 {
-  border-top: 1px solid rgba(255, 255, 255, 0.4);
-}
-/* line 120, ../sass/style/_custom.scss */
 .grid td .cell:after {
   display: none;
   content: '';
@@ -4687,11 +4681,11 @@ html, body {
   -webkit-box-shadow: 0 0 10px white inset, 0 0 10px white;
   box-shadow: 0 0 10px white inset, 0 0 10px white;
 }
-/* line 133, ../sass/style/_custom.scss */
+/* line 130, ../sass/style/_custom.scss */
 .grid td img {
   display: none;
 }
-/* line 136, ../sass/style/_custom.scss */
+/* line 133, ../sass/style/_custom.scss */
 .grid td.area {
   background-color: rgba(255, 255, 255, 0.4);
   -moz-transition: background-color 0.3s ease;
@@ -4699,11 +4693,11 @@ html, body {
   -webkit-transition: background-color 0.3s ease;
   transition: background-color 0.3s ease;
 }
-/* line 140, ../sass/style/_custom.scss */
+/* line 137, ../sass/style/_custom.scss */
 .grid td.area:hover {
   background-color: rgba(255, 255, 255, 0.8);
 }
-/* line 143, ../sass/style/_custom.scss */
+/* line 140, ../sass/style/_custom.scss */
 .grid td.area.selected, .grid td.area.plant {
   background-image: url(../images/bak-black.jpg);
   background-size: cover;
@@ -4711,11 +4705,11 @@ html, body {
   border-color: transparent;
   position: relative;
 }
-/* line 149, ../sass/style/_custom.scss */
+/* line 146, ../sass/style/_custom.scss */
 .grid td.area.selected .cell, .grid td.area.plant .cell {
   border: none;
 }
-/* line 152, ../sass/style/_custom.scss */
+/* line 149, ../sass/style/_custom.scss */
 .grid td.area.selected:after, .grid td.area.plant:after {
   display: block;
   content: '';
@@ -4728,18 +4722,18 @@ html, body {
   background-repeat: no-repeat;
   background-image: url(../images/shadow.png);
 }
-/* line 166, ../sass/style/_custom.scss */
+/* line 163, ../sass/style/_custom.scss */
 .grid td.area.selected.plant .cell:after {
   display: block;
 }
-/* line 169, ../sass/style/_custom.scss */
+/* line 166, ../sass/style/_custom.scss */
 .grid td.area.plant img {
   display: block;
   position: absolute;
   z-index: 10;
   top: 50%;
   left: 50%;
-  width: 48px;
+  width: 34.8px;
   pointer-events: none;
   -moz-transform: translate(-50%, -50%);
   -ms-transform: translate(-50%, -50%);
@@ -4747,12 +4741,12 @@ html, body {
   transform: translate(-50%, -50%);
 }
 
-/* line 184, ../sass/style/_custom.scss */
+/* line 181, ../sass/style/_custom.scss */
 .canvas {
   overflow: hidden;
   position: relative;
 }
-/* line 185, ../sass/style/_custom.scss */
+/* line 182, ../sass/style/_custom.scss */
 .canvas * {
   -webkit-touch-callout: none;
   -webkit-user-select: none;
@@ -4761,7 +4755,7 @@ html, body {
   -ms-user-select: none;
   user-select: none;
 }
-/* line 190, ../sass/style/_custom.scss */
+/* line 187, ../sass/style/_custom.scss */
 .canvas .picture {
   height: 100%;
   position: absolute;
@@ -4770,7 +4764,7 @@ html, body {
   width: 100%;
   background-position: center center;
 }
-/* line 197, ../sass/style/_custom.scss */
+/* line 194, ../sass/style/_custom.scss */
 .canvas .picture .bg {
   position: absolute;
   bottom: 0;
@@ -4780,13 +4774,13 @@ html, body {
   -webkit-transform: translate(-50%, 0);
   transform: translate(-50%, 0);
 }
-/* line 204, ../sass/style/_custom.scss */
+/* line 201, ../sass/style/_custom.scss */
 .canvas .bottom-bak {
   position: relative;
-  margin-left: 24px;
+  margin-left: 40px;
   margin-top: 10px;
 }
-/* line 208, ../sass/style/_custom.scss */
+/* line 205, ../sass/style/_custom.scss */
 .canvas .bottom-bak .back-image {
   height: 100%;
   background-color: #333;
@@ -4796,13 +4790,13 @@ html, body {
   -webkit-box-shadow: 5px 5px 10px rgba(0, 0, 0, 0.5);
   box-shadow: 5px 5px 10px rgba(0, 0, 0, 0.5);
 }
-/* line 216, ../sass/style/_custom.scss */
+/* line 213, ../sass/style/_custom.scss */
 .canvas .controls {
   margin-top: 40px;
   position: relative;
   overflow: hidden;
 }
-/* line 220, ../sass/style/_custom.scss */
+/* line 217, ../sass/style/_custom.scss */
 .canvas .controls .bottom-control {
   position: absolute;
   z-index: 1100;
@@ -4813,41 +4807,41 @@ html, body {
   -webkit-transition: all 0.3s ease;
   transition: all 0.3s ease;
 }
-/* line 226, ../sass/style/_custom.scss */
+/* line 223, ../sass/style/_custom.scss */
 .canvas .controls .bottom-control.slide-right {
   left: -100%;
   filter: progid:DXImageTransform.Microsoft.Alpha(Opacity=0);
   opacity: 0;
 }
-/* line 229, ../sass/style/_custom.scss */
+/* line 226, ../sass/style/_custom.scss */
 .canvas .controls .bottom-control.slide-right.active {
   left: 0;
   filter: progid:DXImageTransform.Microsoft.Alpha(enabled=false);
   opacity: 1;
 }
-/* line 234, ../sass/style/_custom.scss */
+/* line 231, ../sass/style/_custom.scss */
 .canvas .controls .bottom-control.slide-left {
   right: -100%;
   filter: progid:DXImageTransform.Microsoft.Alpha(Opacity=0);
   opacity: 0;
 }
-/* line 237, ../sass/style/_custom.scss */
+/* line 234, ../sass/style/_custom.scss */
 .canvas .controls .bottom-control.slide-left.active {
   right: 0;
   filter: progid:DXImageTransform.Microsoft.Alpha(enabled=false);
   opacity: 1;
 }
-/* line 245, ../sass/style/_custom.scss */
+/* line 242, ../sass/style/_custom.scss */
 .canvas .control-top {
   position: absolute;
   right: 167px;
   z-index: 1200;
 }
-/* line 249, ../sass/style/_custom.scss */
+/* line 246, ../sass/style/_custom.scss */
 .canvas .control-top a {
   margin-left: 8px;
 }
-/* line 253, ../sass/style/_custom.scss */
+/* line 250, ../sass/style/_custom.scss */
 .canvas .control {
   position: relative;
   z-index: 2000;
@@ -4858,22 +4852,22 @@ html, body {
   border-radius: 50px;
   background-color: rgba(255, 255, 255, 0.4);
 }
-/* line 260, ../sass/style/_custom.scss */
+/* line 257, ../sass/style/_custom.scss */
 .canvas .control .inner {
   -moz-border-radius: 50px;
   -webkit-border-radius: 50px;
   border-radius: 50px;
   background-color: #4caf50;
 }
-/* line 265, ../sass/style/_custom.scss */
+/* line 262, ../sass/style/_custom.scss */
 .canvas .control.control-left {
   float: left;
 }
-/* line 268, ../sass/style/_custom.scss */
+/* line 265, ../sass/style/_custom.scss */
 .canvas .control.control-right {
   float: right;
 }
-/* line 271, ../sass/style/_custom.scss */
+/* line 268, ../sass/style/_custom.scss */
 .canvas .control .title {
   text-align: center;
   padding: 20px 5px;
@@ -4882,7 +4876,7 @@ html, body {
   color: #fff;
   text-transform: uppercase;
 }
-/* line 279, ../sass/style/_custom.scss */
+/* line 276, ../sass/style/_custom.scss */
 .canvas .control .presets {
   background-color: #fff;
   padding: 12px 0;
@@ -4890,13 +4884,13 @@ html, body {
   -webkit-border-radius: 50px;
   border-radius: 50px;
 }
-/* line 283, ../sass/style/_custom.scss */
+/* line 280, ../sass/style/_custom.scss */
 .canvas .control .presets .item {
   padding: 0 5px;
   text-align: center;
   margin-bottom: 20px;
 }
-/* line 287, ../sass/style/_custom.scss */
+/* line 284, ../sass/style/_custom.scss */
 .canvas .control .presets .item .img, .canvas .control .presets .item img {
   width: 64px;
   height: 64px;
@@ -4906,12 +4900,12 @@ html, body {
   border-radius: 100%;
   cursor: pointer;
 }
-/* line 294, ../sass/style/_custom.scss */
+/* line 291, ../sass/style/_custom.scss */
 .canvas .control .presets .item .img {
   margin: 0 auto;
   position: relative;
 }
-/* line 297, ../sass/style/_custom.scss */
+/* line 294, ../sass/style/_custom.scss */
 .canvas .control .presets .item .img .icon {
   position: absolute;
   top: 0;
@@ -4928,11 +4922,11 @@ html, body {
   -webkit-transition: background-color 0.3s ease;
   transition: background-color 0.3s ease;
 }
-/* line 309, ../sass/style/_custom.scss */
+/* line 306, ../sass/style/_custom.scss */
 .canvas .control .presets .item .img .icon:hover {
   background-color: rgba(0, 0, 0, 0.1);
 }
-/* line 314, ../sass/style/_custom.scss */
+/* line 311, ../sass/style/_custom.scss */
 .canvas .control .presets .item .item-title {
   margin-top: 8px;
   font-size: 10px;
@@ -4940,13 +4934,13 @@ html, body {
   text-transform: uppercase;
   min-height: 2.5em;
 }
-/* line 322, ../sass/style/_custom.scss */
+/* line 319, ../sass/style/_custom.scss */
 .canvas .control .presets .divider {
   height: 2px;
   background-color: #4caf50;
   margin: 30px 10px;
 }
-/* line 329, ../sass/style/_custom.scss */
+/* line 326, ../sass/style/_custom.scss */
 .canvas .control-horizontal {
   padding: 7px 0;
   background-color: rgba(0, 0, 0, 0.6);
@@ -4955,24 +4949,24 @@ html, body {
   height: 114px;
   width: 900px;
 }
-/* line 336, ../sass/style/_custom.scss */
+/* line 333, ../sass/style/_custom.scss */
 .canvas .control-horizontal .presets {
   overflow: hidden;
 }
-/* line 338, ../sass/style/_custom.scss */
+/* line 335, ../sass/style/_custom.scss */
 .canvas .control-horizontal .presets .item {
   width: 100px;
   height: 110px;
   float: left;
   text-align: center;
 }
-/* line 343, ../sass/style/_custom.scss */
+/* line 340, ../sass/style/_custom.scss */
 .canvas .control-horizontal .presets .item img {
   width: 64px;
   height: 64px;
   pointer-events: none;
 }
-/* line 348, ../sass/style/_custom.scss */
+/* line 345, ../sass/style/_custom.scss */
 .canvas .control-horizontal .presets .item .item-title {
   color: #fff;
   margin-top: 8px;
@@ -4981,47 +4975,47 @@ html, body {
   text-transform: uppercase;
 }
 
-/* line 364, ../sass/style/_custom.scss */
+/* line 361, ../sass/style/_custom.scss */
 .canvas.plain .grid table td.area {
   background-color: transparent;
 }
-/* line 367, ../sass/style/_custom.scss */
+/* line 364, ../sass/style/_custom.scss */
 .canvas.plain .grid table td .plus {
   color: transparent;
 }
-/* line 370, ../sass/style/_custom.scss */
+/* line 367, ../sass/style/_custom.scss */
 .canvas.plain .grid table td .cell {
   border: none;
 }
 
-/* line 378, ../sass/style/_custom.scss */
+/* line 375, ../sass/style/_custom.scss */
 .carousel {
   position: relative;
   overflow: hidden;
   height: 100px;
 }
-/* line 382, ../sass/style/_custom.scss */
+/* line 379, ../sass/style/_custom.scss */
 .carousel .carousel-wrapper {
   position: relative;
   overflow: hidden;
   height: 100px;
   float: left;
 }
-/* line 388, ../sass/style/_custom.scss */
+/* line 385, ../sass/style/_custom.scss */
 .carousel .carousel-content {
   position: absolute;
   left: 0;
   top: 0;
   height: 100px;
 }
-/* line 393, ../sass/style/_custom.scss */
+/* line 390, ../sass/style/_custom.scss */
 .carousel .carousel-content.static {
   -moz-transition: left 0.3s ease;
   -o-transition: left 0.3s ease;
   -webkit-transition: left 0.3s ease;
   transition: left 0.3s ease;
 }
-/* line 397, ../sass/style/_custom.scss */
+/* line 394, ../sass/style/_custom.scss */
 .carousel .nav {
   height: 100px;
   width: 50px;
@@ -5032,631 +5026,626 @@ html, body {
   color: #fff;
   font-size: 20px;
 }
-/* line 406, ../sass/style/_custom.scss */
+/* line 403, ../sass/style/_custom.scss */
 .carousel .nav.disabled {
   color: rgba(255, 255, 255, 0.4);
 }
 
 @media screen and (max-width: 1349px) {
-  /* line 419, ../sass/style/_custom.scss */
+  /* line 416, ../sass/style/_custom.scss */
   .canvas {
     height: 720px;
   }
-  /* line 421, ../sass/style/_custom.scss */
+  /* line 418, ../sass/style/_custom.scss */
   .canvas .picture .bg {
     height: 720px;
     width: 1280px;
   }
-  /* line 425, ../sass/style/_custom.scss */
+  /* line 422, ../sass/style/_custom.scss */
   .canvas .grid {
     bottom: 137px;
   }
-  /* line 428, ../sass/style/_custom.scss */
+  /* line 425, ../sass/style/_custom.scss */
   .canvas .bottom-bak {
-    height: 72px;
+    height: 42px;
+    margin-left: 29px;
   }
-  /* line 431, ../sass/style/_custom.scss */
+  /* line 429, ../sass/style/_custom.scss */
   .canvas .bottom-bak.offset-1 {
-    left: 40px;
+    left: 29.5px;
   }
-  /* line 431, ../sass/style/_custom.scss */
+  /* line 429, ../sass/style/_custom.scss */
   .canvas .bottom-bak.offset-2 {
-    left: 80px;
+    left: 59px;
   }
-  /* line 431, ../sass/style/_custom.scss */
+  /* line 429, ../sass/style/_custom.scss */
   .canvas .bottom-bak.offset-3 {
-    left: 120px;
+    left: 88.5px;
   }
-  /* line 431, ../sass/style/_custom.scss */
+  /* line 429, ../sass/style/_custom.scss */
   .canvas .bottom-bak.offset-4 {
-    left: 160px;
+    left: 118px;
   }
-  /* line 431, ../sass/style/_custom.scss */
+  /* line 429, ../sass/style/_custom.scss */
   .canvas .bottom-bak.offset-5 {
-    left: 200px;
+    left: 147.5px;
   }
-  /* line 431, ../sass/style/_custom.scss */
+  /* line 429, ../sass/style/_custom.scss */
   .canvas .bottom-bak.offset-6 {
-    left: 240px;
+    left: 177px;
   }
-  /* line 431, ../sass/style/_custom.scss */
+  /* line 429, ../sass/style/_custom.scss */
   .canvas .bottom-bak.offset-7 {
-    left: 280px;
+    left: 206.5px;
   }
-  /* line 431, ../sass/style/_custom.scss */
+  /* line 429, ../sass/style/_custom.scss */
   .canvas .bottom-bak.offset-8 {
-    left: 320px;
+    left: 236px;
   }
-  /* line 431, ../sass/style/_custom.scss */
+  /* line 429, ../sass/style/_custom.scss */
   .canvas .bottom-bak.offset-9 {
-    left: 360px;
+    left: 265.5px;
   }
-  /* line 431, ../sass/style/_custom.scss */
+  /* line 429, ../sass/style/_custom.scss */
   .canvas .bottom-bak.offset-10 {
-    left: 400px;
+    left: 295px;
   }
-  /* line 431, ../sass/style/_custom.scss */
+  /* line 429, ../sass/style/_custom.scss */
   .canvas .bottom-bak.offset-11 {
-    left: 440px;
+    left: 324.5px;
   }
-  /* line 431, ../sass/style/_custom.scss */
+  /* line 429, ../sass/style/_custom.scss */
   .canvas .bottom-bak.offset-12 {
-    left: 480px;
+    left: 354px;
   }
-  /* line 431, ../sass/style/_custom.scss */
+  /* line 429, ../sass/style/_custom.scss */
   .canvas .bottom-bak.offset-13 {
-    left: 520px;
+    left: 383.5px;
   }
-  /* line 431, ../sass/style/_custom.scss */
+  /* line 429, ../sass/style/_custom.scss */
   .canvas .bottom-bak.offset-14 {
-    left: 560px;
+    left: 413px;
   }
-  /* line 431, ../sass/style/_custom.scss */
+  /* line 429, ../sass/style/_custom.scss */
   .canvas .bottom-bak.offset-15 {
-    left: 600px;
+    left: 442.5px;
   }
-  /* line 436, ../sass/style/_custom.scss */
+  /* line 434, ../sass/style/_custom.scss */
   .canvas .bottom-bak.width-1 {
-    width: 40px;
+    width: 29px;
   }
-  /* line 436, ../sass/style/_custom.scss */
+  /* line 434, ../sass/style/_custom.scss */
   .canvas .bottom-bak.width-2 {
-    width: 80px;
+    width: 58px;
   }
-  /* line 436, ../sass/style/_custom.scss */
+  /* line 434, ../sass/style/_custom.scss */
   .canvas .bottom-bak.width-3 {
-    width: 120px;
+    width: 87px;
   }
-  /* line 436, ../sass/style/_custom.scss */
+  /* line 434, ../sass/style/_custom.scss */
   .canvas .bottom-bak.width-4 {
-    width: 160px;
+    width: 116px;
   }
-  /* line 436, ../sass/style/_custom.scss */
+  /* line 434, ../sass/style/_custom.scss */
   .canvas .bottom-bak.width-5 {
-    width: 200px;
+    width: 145px;
   }
-  /* line 436, ../sass/style/_custom.scss */
+  /* line 434, ../sass/style/_custom.scss */
   .canvas .bottom-bak.width-6 {
-    width: 240px;
+    width: 174px;
   }
-  /* line 436, ../sass/style/_custom.scss */
+  /* line 434, ../sass/style/_custom.scss */
   .canvas .bottom-bak.width-7 {
-    width: 280px;
+    width: 203px;
   }
-  /* line 436, ../sass/style/_custom.scss */
+  /* line 434, ../sass/style/_custom.scss */
   .canvas .bottom-bak.width-8 {
-    width: 320px;
+    width: 232px;
   }
-  /* line 436, ../sass/style/_custom.scss */
+  /* line 434, ../sass/style/_custom.scss */
   .canvas .bottom-bak.width-9 {
-    width: 360px;
+    width: 261px;
   }
-  /* line 436, ../sass/style/_custom.scss */
+  /* line 434, ../sass/style/_custom.scss */
   .canvas .bottom-bak.width-10 {
-    width: 400px;
+    width: 290px;
   }
-  /* line 436, ../sass/style/_custom.scss */
+  /* line 434, ../sass/style/_custom.scss */
   .canvas .bottom-bak.width-11 {
-    width: 440px;
+    width: 319px;
   }
-  /* line 436, ../sass/style/_custom.scss */
+  /* line 434, ../sass/style/_custom.scss */
   .canvas .bottom-bak.width-12 {
-    width: 480px;
+    width: 348px;
   }
-  /* line 436, ../sass/style/_custom.scss */
+  /* line 434, ../sass/style/_custom.scss */
   .canvas .bottom-bak.width-13 {
-    width: 520px;
+    width: 377px;
   }
-  /* line 436, ../sass/style/_custom.scss */
+  /* line 434, ../sass/style/_custom.scss */
   .canvas .bottom-bak.width-14 {
-    width: 560px;
+    width: 406px;
   }
-  /* line 436, ../sass/style/_custom.scss */
+  /* line 434, ../sass/style/_custom.scss */
   .canvas .bottom-bak.width-15 {
-    width: 600px;
+    width: 435px;
   }
-  /* line 436, ../sass/style/_custom.scss */
+  /* line 434, ../sass/style/_custom.scss */
   .canvas .bottom-bak.width-16 {
-    width: 640px;
+    width: 464px;
   }
-  /* line 436, ../sass/style/_custom.scss */
+  /* line 434, ../sass/style/_custom.scss */
   .canvas .bottom-bak.width-17 {
-    width: 680px;
+    width: 493px;
   }
-  /* line 436, ../sass/style/_custom.scss */
+  /* line 434, ../sass/style/_custom.scss */
   .canvas .bottom-bak.width-18 {
-    width: 720px;
+    width: 522px;
   }
-  /* line 436, ../sass/style/_custom.scss */
+  /* line 434, ../sass/style/_custom.scss */
   .canvas .bottom-bak.width-19 {
-    width: 760px;
+    width: 551px;
   }
-  /* line 436, ../sass/style/_custom.scss */
+  /* line 434, ../sass/style/_custom.scss */
   .canvas .bottom-bak.width-20 {
-    width: 800px;
+    width: 580px;
   }
-  /* line 436, ../sass/style/_custom.scss */
+  /* line 434, ../sass/style/_custom.scss */
   .canvas .bottom-bak.width-21 {
-    width: 840px;
+    width: 609px;
   }
-  /* line 436, ../sass/style/_custom.scss */
+  /* line 434, ../sass/style/_custom.scss */
   .canvas .bottom-bak.width-22 {
-    width: 880px;
+    width: 638px;
   }
-  /* line 436, ../sass/style/_custom.scss */
+  /* line 434, ../sass/style/_custom.scss */
   .canvas .bottom-bak.width-23 {
-    width: 920px;
+    width: 667px;
   }
-  /* line 436, ../sass/style/_custom.scss */
+  /* line 434, ../sass/style/_custom.scss */
   .canvas .bottom-bak.width-24 {
-    width: 960px;
+    width: 696px;
   }
-  /* line 436, ../sass/style/_custom.scss */
+  /* line 434, ../sass/style/_custom.scss */
   .canvas .bottom-bak.width-25 {
-    width: 1000px;
+    width: 725px;
   }
-  /* line 436, ../sass/style/_custom.scss */
+  /* line 434, ../sass/style/_custom.scss */
   .canvas .bottom-bak.width-26 {
-    width: 1040px;
+    width: 754px;
   }
-  /* line 436, ../sass/style/_custom.scss */
+  /* line 434, ../sass/style/_custom.scss */
   .canvas .bottom-bak.width-27 {
-    width: 1080px;
+    width: 783px;
   }
-  /* line 436, ../sass/style/_custom.scss */
+  /* line 434, ../sass/style/_custom.scss */
   .canvas .bottom-bak.width-28 {
-    width: 1120px;
+    width: 812px;
   }
-  /* line 436, ../sass/style/_custom.scss */
+  /* line 434, ../sass/style/_custom.scss */
   .canvas .bottom-bak.width-29 {
-    width: 1160px;
+    width: 841px;
   }
-  /* line 436, ../sass/style/_custom.scss */
+  /* line 434, ../sass/style/_custom.scss */
   .canvas .bottom-bak.width-30 {
-    width: 1200px;
+    width: 870px;
   }
 }
 @media screen and (min-width: 1350px) {
-  /* line 444, ../sass/style/_custom.scss */
+  /* line 442, ../sass/style/_custom.scss */
   .canvas {
     height: 900px;
   }
-  /* line 446, ../sass/style/_custom.scss */
+  /* line 444, ../sass/style/_custom.scss */
   .canvas .picture .bg {
     height: 900px;
     width: 1600px;
   }
-  /* line 450, ../sass/style/_custom.scss */
+  /* line 448, ../sass/style/_custom.scss */
   .canvas .grid {
     bottom: 171px;
   }
+  /* line 450, ../sass/style/_custom.scss */
+  .canvas .grid td {
+    width: 36.25px;
+    height: 43.75px;
+  }
   /* line 453, ../sass/style/_custom.scss */
-  .canvas .grid td .plus {
-    height: 60px;
-  }
-  /* line 456, ../sass/style/_custom.scss */
-  .canvas .grid td .cell {
-    width: 50px;
-    height: 60px;
-  }
-  /* line 460, ../sass/style/_custom.scss */
   .canvas .grid td.area.plant img {
-    width: 60px;
+    width: 43.5px;
   }
-  /* line 465, ../sass/style/_custom.scss */
+  /* line 458, ../sass/style/_custom.scss */
   .canvas .bottom-bak {
-    height: 90px;
+    height: 52.5px;
+    margin-left: 36.25px;
   }
-  /* line 468, ../sass/style/_custom.scss */
+  /* line 462, ../sass/style/_custom.scss */
   .canvas .bottom-bak.offset-1 {
-    left: 50px;
+    left: 36.75px;
   }
-  /* line 468, ../sass/style/_custom.scss */
+  /* line 462, ../sass/style/_custom.scss */
   .canvas .bottom-bak.offset-2 {
-    left: 100px;
+    left: 73.5px;
   }
-  /* line 468, ../sass/style/_custom.scss */
+  /* line 462, ../sass/style/_custom.scss */
   .canvas .bottom-bak.offset-3 {
-    left: 150px;
+    left: 110.25px;
   }
-  /* line 468, ../sass/style/_custom.scss */
+  /* line 462, ../sass/style/_custom.scss */
   .canvas .bottom-bak.offset-4 {
-    left: 200px;
+    left: 147px;
   }
-  /* line 468, ../sass/style/_custom.scss */
+  /* line 462, ../sass/style/_custom.scss */
   .canvas .bottom-bak.offset-5 {
-    left: 250px;
+    left: 183.75px;
   }
-  /* line 468, ../sass/style/_custom.scss */
+  /* line 462, ../sass/style/_custom.scss */
   .canvas .bottom-bak.offset-6 {
-    left: 300px;
+    left: 220.5px;
   }
-  /* line 468, ../sass/style/_custom.scss */
+  /* line 462, ../sass/style/_custom.scss */
   .canvas .bottom-bak.offset-7 {
-    left: 350px;
+    left: 257.25px;
   }
-  /* line 468, ../sass/style/_custom.scss */
+  /* line 462, ../sass/style/_custom.scss */
   .canvas .bottom-bak.offset-8 {
-    left: 400px;
+    left: 294px;
   }
-  /* line 468, ../sass/style/_custom.scss */
+  /* line 462, ../sass/style/_custom.scss */
   .canvas .bottom-bak.offset-9 {
-    left: 450px;
+    left: 330.75px;
   }
-  /* line 468, ../sass/style/_custom.scss */
+  /* line 462, ../sass/style/_custom.scss */
   .canvas .bottom-bak.offset-10 {
-    left: 500px;
+    left: 367.5px;
   }
-  /* line 468, ../sass/style/_custom.scss */
+  /* line 462, ../sass/style/_custom.scss */
   .canvas .bottom-bak.offset-11 {
-    left: 550px;
+    left: 404.25px;
   }
-  /* line 468, ../sass/style/_custom.scss */
+  /* line 462, ../sass/style/_custom.scss */
   .canvas .bottom-bak.offset-12 {
-    left: 600px;
+    left: 441px;
   }
-  /* line 468, ../sass/style/_custom.scss */
+  /* line 462, ../sass/style/_custom.scss */
   .canvas .bottom-bak.offset-13 {
-    left: 650px;
+    left: 477.75px;
   }
-  /* line 468, ../sass/style/_custom.scss */
+  /* line 462, ../sass/style/_custom.scss */
   .canvas .bottom-bak.offset-14 {
-    left: 700px;
+    left: 514.5px;
   }
-  /* line 468, ../sass/style/_custom.scss */
+  /* line 462, ../sass/style/_custom.scss */
   .canvas .bottom-bak.offset-15 {
-    left: 750px;
+    left: 551.25px;
   }
-  /* line 473, ../sass/style/_custom.scss */
+  /* line 467, ../sass/style/_custom.scss */
   .canvas .bottom-bak.width-1 {
-    width: 50px;
+    width: 36.25px;
   }
-  /* line 473, ../sass/style/_custom.scss */
+  /* line 467, ../sass/style/_custom.scss */
   .canvas .bottom-bak.width-2 {
-    width: 100px;
+    width: 72.5px;
   }
-  /* line 473, ../sass/style/_custom.scss */
+  /* line 467, ../sass/style/_custom.scss */
   .canvas .bottom-bak.width-3 {
-    width: 150px;
+    width: 108.75px;
   }
-  /* line 473, ../sass/style/_custom.scss */
+  /* line 467, ../sass/style/_custom.scss */
   .canvas .bottom-bak.width-4 {
-    width: 200px;
+    width: 145px;
   }
-  /* line 473, ../sass/style/_custom.scss */
+  /* line 467, ../sass/style/_custom.scss */
   .canvas .bottom-bak.width-5 {
-    width: 250px;
+    width: 181.25px;
   }
-  /* line 473, ../sass/style/_custom.scss */
+  /* line 467, ../sass/style/_custom.scss */
   .canvas .bottom-bak.width-6 {
-    width: 300px;
+    width: 217.5px;
   }
-  /* line 473, ../sass/style/_custom.scss */
+  /* line 467, ../sass/style/_custom.scss */
   .canvas .bottom-bak.width-7 {
-    width: 350px;
+    width: 253.75px;
   }
-  /* line 473, ../sass/style/_custom.scss */
+  /* line 467, ../sass/style/_custom.scss */
   .canvas .bottom-bak.width-8 {
-    width: 400px;
+    width: 290px;
   }
-  /* line 473, ../sass/style/_custom.scss */
+  /* line 467, ../sass/style/_custom.scss */
   .canvas .bottom-bak.width-9 {
-    width: 450px;
+    width: 326.25px;
   }
-  /* line 473, ../sass/style/_custom.scss */
+  /* line 467, ../sass/style/_custom.scss */
   .canvas .bottom-bak.width-10 {
-    width: 500px;
+    width: 362.5px;
   }
-  /* line 473, ../sass/style/_custom.scss */
+  /* line 467, ../sass/style/_custom.scss */
   .canvas .bottom-bak.width-11 {
-    width: 550px;
+    width: 398.75px;
   }
-  /* line 473, ../sass/style/_custom.scss */
+  /* line 467, ../sass/style/_custom.scss */
   .canvas .bottom-bak.width-12 {
-    width: 600px;
+    width: 435px;
   }
-  /* line 473, ../sass/style/_custom.scss */
+  /* line 467, ../sass/style/_custom.scss */
   .canvas .bottom-bak.width-13 {
-    width: 650px;
+    width: 471.25px;
   }
-  /* line 473, ../sass/style/_custom.scss */
+  /* line 467, ../sass/style/_custom.scss */
   .canvas .bottom-bak.width-14 {
-    width: 700px;
+    width: 507.5px;
   }
-  /* line 473, ../sass/style/_custom.scss */
+  /* line 467, ../sass/style/_custom.scss */
   .canvas .bottom-bak.width-15 {
-    width: 750px;
+    width: 543.75px;
   }
-  /* line 473, ../sass/style/_custom.scss */
+  /* line 467, ../sass/style/_custom.scss */
   .canvas .bottom-bak.width-16 {
-    width: 800px;
+    width: 580px;
   }
-  /* line 473, ../sass/style/_custom.scss */
+  /* line 467, ../sass/style/_custom.scss */
   .canvas .bottom-bak.width-17 {
-    width: 850px;
+    width: 616.25px;
   }
-  /* line 473, ../sass/style/_custom.scss */
+  /* line 467, ../sass/style/_custom.scss */
   .canvas .bottom-bak.width-18 {
-    width: 900px;
+    width: 652.5px;
   }
-  /* line 473, ../sass/style/_custom.scss */
+  /* line 467, ../sass/style/_custom.scss */
   .canvas .bottom-bak.width-19 {
-    width: 950px;
+    width: 688.75px;
   }
-  /* line 473, ../sass/style/_custom.scss */
+  /* line 467, ../sass/style/_custom.scss */
   .canvas .bottom-bak.width-20 {
-    width: 1000px;
+    width: 725px;
   }
-  /* line 473, ../sass/style/_custom.scss */
+  /* line 467, ../sass/style/_custom.scss */
   .canvas .bottom-bak.width-21 {
-    width: 1050px;
+    width: 761.25px;
   }
-  /* line 473, ../sass/style/_custom.scss */
+  /* line 467, ../sass/style/_custom.scss */
   .canvas .bottom-bak.width-22 {
-    width: 1100px;
+    width: 797.5px;
   }
-  /* line 473, ../sass/style/_custom.scss */
+  /* line 467, ../sass/style/_custom.scss */
   .canvas .bottom-bak.width-23 {
-    width: 1150px;
+    width: 833.75px;
   }
-  /* line 473, ../sass/style/_custom.scss */
+  /* line 467, ../sass/style/_custom.scss */
   .canvas .bottom-bak.width-24 {
-    width: 1200px;
+    width: 870px;
   }
-  /* line 473, ../sass/style/_custom.scss */
+  /* line 467, ../sass/style/_custom.scss */
   .canvas .bottom-bak.width-25 {
-    width: 1250px;
+    width: 906.25px;
   }
-  /* line 473, ../sass/style/_custom.scss */
+  /* line 467, ../sass/style/_custom.scss */
   .canvas .bottom-bak.width-26 {
-    width: 1300px;
+    width: 942.5px;
   }
-  /* line 473, ../sass/style/_custom.scss */
+  /* line 467, ../sass/style/_custom.scss */
   .canvas .bottom-bak.width-27 {
-    width: 1350px;
+    width: 978.75px;
   }
-  /* line 473, ../sass/style/_custom.scss */
+  /* line 467, ../sass/style/_custom.scss */
   .canvas .bottom-bak.width-28 {
-    width: 1400px;
+    width: 1015px;
   }
-  /* line 473, ../sass/style/_custom.scss */
+  /* line 467, ../sass/style/_custom.scss */
   .canvas .bottom-bak.width-29 {
-    width: 1450px;
+    width: 1051.25px;
   }
-  /* line 473, ../sass/style/_custom.scss */
+  /* line 467, ../sass/style/_custom.scss */
   .canvas .bottom-bak.width-30 {
-    width: 1500px;
+    width: 1087.5px;
   }
 }
 @media screen and (min-width: 1850px) {
-  /* line 481, ../sass/style/_custom.scss */
+  /* line 475, ../sass/style/_custom.scss */
   .canvas {
     height: 1080px;
   }
-  /* line 483, ../sass/style/_custom.scss */
+  /* line 477, ../sass/style/_custom.scss */
   .canvas .picture .bg {
     height: 1080px;
     width: 1920px;
   }
-  /* line 487, ../sass/style/_custom.scss */
+  /* line 481, ../sass/style/_custom.scss */
   .canvas .grid {
     bottom: 205px;
   }
-  /* line 490, ../sass/style/_custom.scss */
-  .canvas .grid td .plus {
-    height: 72px;
+  /* line 483, ../sass/style/_custom.scss */
+  .canvas .grid td {
+    width: 43.5px;
+    height: 52.5px;
   }
-  /* line 493, ../sass/style/_custom.scss */
-  .canvas .grid td .cell {
-    width: 60px;
-    height: 72px;
-  }
-  /* line 497, ../sass/style/_custom.scss */
+  /* line 486, ../sass/style/_custom.scss */
   .canvas .grid td.area.plant img {
-    width: 72px;
+    width: 52.2px;
   }
-  /* line 502, ../sass/style/_custom.scss */
+  /* line 491, ../sass/style/_custom.scss */
   .canvas .bottom-bak {
-    height: 108px;
+    height: 63px;
+    margin-left: 43.5px;
   }
-  /* line 505, ../sass/style/_custom.scss */
+  /* line 495, ../sass/style/_custom.scss */
   .canvas .bottom-bak.offset-1 {
-    left: 60px;
+    left: 44px;
   }
-  /* line 505, ../sass/style/_custom.scss */
+  /* line 495, ../sass/style/_custom.scss */
   .canvas .bottom-bak.offset-2 {
-    left: 120px;
+    left: 88px;
   }
-  /* line 505, ../sass/style/_custom.scss */
+  /* line 495, ../sass/style/_custom.scss */
   .canvas .bottom-bak.offset-3 {
-    left: 180px;
+    left: 132px;
   }
-  /* line 505, ../sass/style/_custom.scss */
+  /* line 495, ../sass/style/_custom.scss */
   .canvas .bottom-bak.offset-4 {
-    left: 240px;
+    left: 176px;
   }
-  /* line 505, ../sass/style/_custom.scss */
+  /* line 495, ../sass/style/_custom.scss */
   .canvas .bottom-bak.offset-5 {
-    left: 300px;
+    left: 220px;
   }
-  /* line 505, ../sass/style/_custom.scss */
+  /* line 495, ../sass/style/_custom.scss */
   .canvas .bottom-bak.offset-6 {
-    left: 360px;
+    left: 264px;
   }
-  /* line 505, ../sass/style/_custom.scss */
+  /* line 495, ../sass/style/_custom.scss */
   .canvas .bottom-bak.offset-7 {
-    left: 420px;
+    left: 308px;
   }
-  /* line 505, ../sass/style/_custom.scss */
+  /* line 495, ../sass/style/_custom.scss */
   .canvas .bottom-bak.offset-8 {
-    left: 480px;
+    left: 352px;
   }
-  /* line 505, ../sass/style/_custom.scss */
+  /* line 495, ../sass/style/_custom.scss */
   .canvas .bottom-bak.offset-9 {
-    left: 540px;
+    left: 396px;
   }
-  /* line 505, ../sass/style/_custom.scss */
+  /* line 495, ../sass/style/_custom.scss */
   .canvas .bottom-bak.offset-10 {
-    left: 600px;
+    left: 440px;
   }
-  /* line 505, ../sass/style/_custom.scss */
+  /* line 495, ../sass/style/_custom.scss */
   .canvas .bottom-bak.offset-11 {
+    left: 484px;
+  }
+  /* line 495, ../sass/style/_custom.scss */
+  .canvas .bottom-bak.offset-12 {
+    left: 528px;
+  }
+  /* line 495, ../sass/style/_custom.scss */
+  .canvas .bottom-bak.offset-13 {
+    left: 572px;
+  }
+  /* line 495, ../sass/style/_custom.scss */
+  .canvas .bottom-bak.offset-14 {
+    left: 616px;
+  }
+  /* line 495, ../sass/style/_custom.scss */
+  .canvas .bottom-bak.offset-15 {
     left: 660px;
   }
-  /* line 505, ../sass/style/_custom.scss */
-  .canvas .bottom-bak.offset-12 {
-    left: 720px;
-  }
-  /* line 505, ../sass/style/_custom.scss */
-  .canvas .bottom-bak.offset-13 {
-    left: 780px;
-  }
-  /* line 505, ../sass/style/_custom.scss */
-  .canvas .bottom-bak.offset-14 {
-    left: 840px;
-  }
-  /* line 505, ../sass/style/_custom.scss */
-  .canvas .bottom-bak.offset-15 {
-    left: 900px;
-  }
-  /* line 510, ../sass/style/_custom.scss */
+  /* line 500, ../sass/style/_custom.scss */
   .canvas .bottom-bak.width-1 {
-    width: 60px;
+    width: 43.5px;
   }
-  /* line 510, ../sass/style/_custom.scss */
+  /* line 500, ../sass/style/_custom.scss */
   .canvas .bottom-bak.width-2 {
-    width: 120px;
+    width: 87px;
   }
-  /* line 510, ../sass/style/_custom.scss */
+  /* line 500, ../sass/style/_custom.scss */
   .canvas .bottom-bak.width-3 {
-    width: 180px;
+    width: 130.5px;
   }
-  /* line 510, ../sass/style/_custom.scss */
+  /* line 500, ../sass/style/_custom.scss */
   .canvas .bottom-bak.width-4 {
-    width: 240px;
+    width: 174px;
   }
-  /* line 510, ../sass/style/_custom.scss */
+  /* line 500, ../sass/style/_custom.scss */
   .canvas .bottom-bak.width-5 {
-    width: 300px;
+    width: 217.5px;
   }
-  /* line 510, ../sass/style/_custom.scss */
+  /* line 500, ../sass/style/_custom.scss */
   .canvas .bottom-bak.width-6 {
-    width: 360px;
+    width: 261px;
   }
-  /* line 510, ../sass/style/_custom.scss */
+  /* line 500, ../sass/style/_custom.scss */
   .canvas .bottom-bak.width-7 {
-    width: 420px;
+    width: 304.5px;
   }
-  /* line 510, ../sass/style/_custom.scss */
+  /* line 500, ../sass/style/_custom.scss */
   .canvas .bottom-bak.width-8 {
-    width: 480px;
+    width: 348px;
   }
-  /* line 510, ../sass/style/_custom.scss */
+  /* line 500, ../sass/style/_custom.scss */
   .canvas .bottom-bak.width-9 {
-    width: 540px;
+    width: 391.5px;
   }
-  /* line 510, ../sass/style/_custom.scss */
+  /* line 500, ../sass/style/_custom.scss */
   .canvas .bottom-bak.width-10 {
-    width: 600px;
+    width: 435px;
   }
-  /* line 510, ../sass/style/_custom.scss */
+  /* line 500, ../sass/style/_custom.scss */
   .canvas .bottom-bak.width-11 {
-    width: 660px;
+    width: 478.5px;
   }
-  /* line 510, ../sass/style/_custom.scss */
+  /* line 500, ../sass/style/_custom.scss */
   .canvas .bottom-bak.width-12 {
-    width: 720px;
+    width: 522px;
   }
-  /* line 510, ../sass/style/_custom.scss */
+  /* line 500, ../sass/style/_custom.scss */
   .canvas .bottom-bak.width-13 {
-    width: 780px;
+    width: 565.5px;
   }
-  /* line 510, ../sass/style/_custom.scss */
+  /* line 500, ../sass/style/_custom.scss */
   .canvas .bottom-bak.width-14 {
-    width: 840px;
+    width: 609px;
   }
-  /* line 510, ../sass/style/_custom.scss */
+  /* line 500, ../sass/style/_custom.scss */
   .canvas .bottom-bak.width-15 {
-    width: 900px;
+    width: 652.5px;
   }
-  /* line 510, ../sass/style/_custom.scss */
+  /* line 500, ../sass/style/_custom.scss */
   .canvas .bottom-bak.width-16 {
-    width: 960px;
+    width: 696px;
   }
-  /* line 510, ../sass/style/_custom.scss */
+  /* line 500, ../sass/style/_custom.scss */
   .canvas .bottom-bak.width-17 {
-    width: 1020px;
+    width: 739.5px;
   }
-  /* line 510, ../sass/style/_custom.scss */
+  /* line 500, ../sass/style/_custom.scss */
   .canvas .bottom-bak.width-18 {
-    width: 1080px;
+    width: 783px;
   }
-  /* line 510, ../sass/style/_custom.scss */
+  /* line 500, ../sass/style/_custom.scss */
   .canvas .bottom-bak.width-19 {
-    width: 1140px;
+    width: 826.5px;
   }
-  /* line 510, ../sass/style/_custom.scss */
+  /* line 500, ../sass/style/_custom.scss */
   .canvas .bottom-bak.width-20 {
-    width: 1200px;
+    width: 870px;
   }
-  /* line 510, ../sass/style/_custom.scss */
+  /* line 500, ../sass/style/_custom.scss */
   .canvas .bottom-bak.width-21 {
-    width: 1260px;
+    width: 913.5px;
   }
-  /* line 510, ../sass/style/_custom.scss */
+  /* line 500, ../sass/style/_custom.scss */
   .canvas .bottom-bak.width-22 {
-    width: 1320px;
+    width: 957px;
   }
-  /* line 510, ../sass/style/_custom.scss */
+  /* line 500, ../sass/style/_custom.scss */
   .canvas .bottom-bak.width-23 {
-    width: 1380px;
+    width: 1000.5px;
   }
-  /* line 510, ../sass/style/_custom.scss */
+  /* line 500, ../sass/style/_custom.scss */
   .canvas .bottom-bak.width-24 {
-    width: 1440px;
+    width: 1044px;
   }
-  /* line 510, ../sass/style/_custom.scss */
+  /* line 500, ../sass/style/_custom.scss */
   .canvas .bottom-bak.width-25 {
-    width: 1500px;
+    width: 1087.5px;
   }
-  /* line 510, ../sass/style/_custom.scss */
+  /* line 500, ../sass/style/_custom.scss */
   .canvas .bottom-bak.width-26 {
-    width: 1560px;
+    width: 1131px;
   }
-  /* line 510, ../sass/style/_custom.scss */
+  /* line 500, ../sass/style/_custom.scss */
   .canvas .bottom-bak.width-27 {
-    width: 1620px;
+    width: 1174.5px;
   }
-  /* line 510, ../sass/style/_custom.scss */
+  /* line 500, ../sass/style/_custom.scss */
   .canvas .bottom-bak.width-28 {
-    width: 1680px;
+    width: 1218px;
   }
-  /* line 510, ../sass/style/_custom.scss */
+  /* line 500, ../sass/style/_custom.scss */
   .canvas .bottom-bak.width-29 {
-    width: 1740px;
+    width: 1261.5px;
   }
-  /* line 510, ../sass/style/_custom.scss */
+  /* line 500, ../sass/style/_custom.scss */
   .canvas .bottom-bak.width-30 {
-    width: 1800px;
+    width: 1305px;
   }
 }

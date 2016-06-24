@@ -1,6 +1,6 @@
-$boxHeight: 48px;
-$boxWidth: 40px;
-$bakHeight: 72px;
+$boxHeight: 35px;
+$boxWidth: 29px;
+$bakHeight: 42px;
 $overFlow: 1.2;
 
 $offsetBotttom: 196px;
@@ -84,21 +84,25 @@ html, body {
 	table {
 		table-layout: fixed;
 		margin: 0 auto;
+		border-collapse: collapse;
 	}
 	td {
 		padding: 0;
 		vertical-align: middle;
 		text-align: center;
-		.plus {
+		border: none;
+		border: 1px solid rgba(255,255,255,0.4);
+		width: $boxWidth;
+		height: $boxHeight;
+		vertical-align: middle;
+		&.plus {
 			border: none;
-			width: 24px;
-			height: $boxHeight;
-			line-height: $boxHeight;
 			vertical-align: middle;
 			font-size: 20px;
 			color: rgba(255,255,255,0.6);
-			@include transition(color 0.3s ease);
 			cursor: pointer;
+			@include transition(color 0.3s ease);
+			border-color: transparent;
 			&:hover {
 				color: #fff;
 				background-color: transparent;
@@ -106,17 +110,10 @@ html, body {
 		}
 		.cell {
 			cursor: default;
-			width: $boxWidth;
-			height: $boxHeight;
-			border: 1px solid rgba(255,255,255,0.4);
-			border-width: 0 1px 1px 0;
 			position: relative;
-			&.cell-x-0 {
-				border-left: 1px solid rgba(255,255,255,0.4);
-			}
-			&.cell-y-0 {
-				border-top: 1px solid rgba(255,255,255,0.4);
-			}
+			width: 100%;
+			height: 100%;
+
 			&:after {
 				display: none;
 				content: '';
@@ -203,7 +200,7 @@ html, body {
 	}
 	.bottom-bak {
 		position: relative;
-		margin-left: 24px;
+		margin-left: 40px;
 		margin-top: 10px;
 		.back-image {
 			height: 100%;
@@ -427,14 +424,15 @@ $zoom2: 1.5;
 		}
 		.bottom-bak {
 			height: $bakHeight;
+			margin-left: $boxWidth;
 			@for $i from 1 through 15 {
 				&.offset-#{$i} {
-					left: $boxWidth*$i;
+					left: ($boxWidth + 0.5px) * $i;
 				}
 			}
 			@for $i from 1 through 30 {
 				&.width-#{$i} {
-					width: $boxWidth*$i;
+					width: ($boxWidth) * $i;
 				}
 			}
 		}
@@ -450,13 +448,8 @@ $zoom2: 1.5;
 		.grid {
 			bottom: 171px;
 			td {
-				.plus {
-					height: $boxHeight * $zoom1;
-				}
-				.cell {
-					width: $boxWidth * $zoom1;
-					height: $boxHeight * $zoom1;
-				}
+				width: $boxWidth * $zoom1;
+				height: $boxHeight * $zoom1;
 				&.area.plant img {
 					width: $boxWidth * $overFlow * $zoom1;
 				}
@@ -464,14 +457,15 @@ $zoom2: 1.5;
 		}
 		.bottom-bak {
 			height: $bakHeight * $zoom1;
+			margin-left: $boxWidth * $zoom1;
 			@for $i from 1 through 15 {
 				&.offset-#{$i} {
-					left: $boxWidth * $zoom1 * $i;
+					left: ($boxWidth * $zoom1 + 0.5px) * $i;
 				}
 			}
 			@for $i from 1 through 30 {
 				&.width-#{$i} {
-					width: $boxWidth * $zoom1 * $i;
+					width: ($boxWidth * $zoom1) * $i;
 				}
 			}
 		}
@@ -487,13 +481,8 @@ $zoom2: 1.5;
 		.grid {
 			bottom: 205px;
 			td {
-				.plus {
-					height: $boxHeight * $zoom2;
-				}
-				.cell {
-					width: $boxWidth * $zoom2;
-					height: $boxHeight * $zoom2;
-				}
+				width: $boxWidth * $zoom2;
+				height: $boxHeight * $zoom2;
 				&.area.plant img {
 					width: $boxWidth * $overFlow * $zoom2;
 				}
@@ -501,14 +490,15 @@ $zoom2: 1.5;
 		}
 		.bottom-bak {
 			height: $bakHeight * $zoom2;
+			margin-left: $boxWidth * $zoom2;
 			@for $i from 1 through 15 {
 				&.offset-#{$i} {
-					left: $boxWidth * $zoom2 * $i;
+					left: ($boxWidth * $zoom2 + 0.5px) * $i;
 				}
 			}
 			@for $i from 1 through 30 {
 				&.width-#{$i} {
-					width: $boxWidth * $zoom2 * $i;
+					width: ($boxWidth * $zoom2) * $i;
 				}
 			}
 		}

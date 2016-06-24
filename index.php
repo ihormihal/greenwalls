@@ -19,10 +19,24 @@
 						<div id="picture" class="picture">
 							<img ng-src="{{room.image}}" alt="" class="bg">
 							<div class="grid">
+								<!-- <div class="table">
+									<div class="row" ng-repeat="(y, row) in grid.rows">
+										<div ng-click="selectRow(y)" class="cell plus">+</div>
+										<div 
+										class="cell"
+										ng-repeat="(x, cell) in row"
+										ng-class="{'area': cell.area, 'selected': cell.selected, 'plant': cell.plant}"
+										ng-click="selectCell(x, y)"
+										>
+											<img ng-show="cell.plant" ng-src="{{cell.plant.image}}" alt="">
+										</div>
+										<div ng-click="selectRow(y)" class="cell plus">+</div>
+									</div>
+								</div> -->
 								<table>
 									<tr ng-repeat="(y, row) in grid.rows">
-										<td ng-click="selectRow(y)"><div class="plus">+</div></td>
-										<td
+										<td ng-click="selectRow(y)" class="plus">+</td>
+										<td class="td"
 										ng-repeat="(x, cell) in row"
 										ng-class="{'area': cell.area, 'selected': cell.selected, 'plant': cell.plant}"
 										ng-click="selectCell(x, y)">
@@ -30,10 +44,10 @@
 												<img ng-show="cell.plant" ng-src="{{cell.plant.image}}" alt="">
 											</div>
 										</td>
-										<td ng-click="selectRow(y)"><div class="plus">+</div></td>
+										<td ng-click="selectRow(y)" class="plus">+</td>
 									</tr>
 								</table>
-								<div class="bottom-bak offset-{{area.offset.x}} width-{{area.size.x}}">
+								<div id="bottom-bak" class="bottom-bak offset-{{area.offset.x}} width-{{area.size.x}}">
 									<div ng-show="bak.img" class="back-image" style="background-image: url({{bak.img}});"></div>
 								</div>
 							</div>

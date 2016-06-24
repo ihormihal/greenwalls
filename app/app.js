@@ -21,8 +21,8 @@ angular.module('app', [])
 				height: 200
 			},
 			size: {
-				width: 40,
-				height: 48
+				width: 29,
+				height: 35
 			}
 		},
 		area: {
@@ -373,6 +373,7 @@ angular.module('app', [])
 				$scope.grid.rows[y][x].area = true;
 			}
 		}
+
 	};
 
 
@@ -460,6 +461,7 @@ angular.module('app', [])
 	$scope.$watch('area', function(){
 		$scope.drawArea();
 		$scope.calcPrice();
+		window.resizeBak();
 	}, true);
 
 }])
