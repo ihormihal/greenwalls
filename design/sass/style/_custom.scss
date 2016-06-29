@@ -211,7 +211,7 @@ html, body {
 		}
 	}
 	.controls {
-		margin-top: 40px;
+		margin-top: 20px;
 		position: relative;
 		overflow: hidden;
 		.bottom-control {
@@ -358,14 +358,12 @@ html, body {
 	.grid {
 		table {
 			td {
+				border-color: transparent;
 				&.area {
 					background-color: transparent;
 				}
-				.plus {
-					color: transparent;
-				}
-				.cell {
-					border: none;
+				&.plus {
+					visibility: hidden;
 				}
 			}
 		}
@@ -441,6 +439,9 @@ $zoom2: 1.5;
 @media screen and (min-width: 1350px) {
 	.canvas {
 		height: $height * $zoom1;
+		.controls {
+			margin-top: 108px;
+		}
 		.picture .bg {
 			height: $height * $zoom1;
 			width: $height * $zoom1 * $ratio;
@@ -474,6 +475,9 @@ $zoom2: 1.5;
 @media screen and (min-width: 1850px) {
 	.canvas {
 		height: $height * $zoom2;
+		.controls {
+			margin-top: 180px;
+		}
 		.picture .bg {
 			height: $height * $zoom2;
 			width: $height * $zoom2 * $ratio;

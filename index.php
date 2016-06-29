@@ -19,20 +19,6 @@
 						<div id="picture" class="picture">
 							<img ng-src="{{room.image}}" alt="" class="bg">
 							<div class="grid">
-								<!-- <div class="table">
-									<div class="row" ng-repeat="(y, row) in grid.rows">
-										<div ng-click="selectRow(y)" class="cell plus">+</div>
-										<div 
-										class="cell"
-										ng-repeat="(x, cell) in row"
-										ng-class="{'area': cell.area, 'selected': cell.selected, 'plant': cell.plant}"
-										ng-click="selectCell(x, y)"
-										>
-											<img ng-show="cell.plant" ng-src="{{cell.plant.image}}" alt="">
-										</div>
-										<div ng-click="selectRow(y)" class="cell plus">+</div>
-									</div>
-								</div> -->
 								<table>
 									<tr ng-repeat="(y, row) in grid.rows">
 										<td ng-click="selectRow(y)" class="plus">+</td>
@@ -71,7 +57,7 @@
 											<img ng-src="{{composition.image}}" alt="">
 											<div class="item-title">{{composition.title}}</div>
 										</div>
-										<div class="divider"></div>
+										<div class="divider" style="margin-top: 258px;"></div>
 										<div class="item">
 											<div class="img" ng-click="plantsShowed = !plantsShowed">
 												<img src="design/images/plants.jpg" alt="">
@@ -104,6 +90,11 @@
 										</div>
 									</div>
 								</div>
+							</div>
+
+							<!-- preload rooms -->
+							<div class="hidden">
+								<img ng-repeat="room in rooms" ng-src="{{room.image}}" alt="">
 							</div>
 
 							<div class="bottom-control slide-right" ng-class="{'active': plantsShowed}">
