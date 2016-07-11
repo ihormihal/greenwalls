@@ -1,5 +1,23 @@
 var cssTransitionEnd = 'transitionend webkitTransitionEnd oTransitionEnd MSTransitionEnd';
 
+var movingAreaParamsDefaults = {
+	moving: false,
+	clickPosition: {
+		x: 0,
+		y: 0
+	},
+	startPosition: {
+		x: 0,
+		y: 0
+	},
+	position: {
+		x: 0,
+		y: 0
+	},
+	zoom: 1
+};
+var movingAreaParams = movingAreaParamsDefaults;
+
 window.resizeBak = function(){
 	// var first = $('#picture table tr td.area').first();
 	// var last = $('#picture table tr td.area').last();
@@ -61,6 +79,58 @@ $(function() {
 		});
 
 	});
+
+
+	var movingArea = $('#picture .bg.custom')[0];
+	var movingImage = $('#picture .bg.custom');
+	
+	$('#custom-room').on('change', function(){
+		movingAreaParams = movingAreaParamsDefaults;
+		if (this.files && this.files[0]) {
+			var reader = new FileReader();
+			reader.onload = function(e) {
+				movingImage.attr('src', e.target.result);
+				movingAreaParams.custom = true;
+				$('#canvas').addClass('custom-bg');
+			}
+			reader.readAsDataURL(this.files[0]);
+		} else {
+			//alert("Sorry - you're browser doesn't support the FileReader API");
+		}
+	});
+
+	movingArea.addEventListener('mousedown', function(event) {
+		movingAreaParams.moving = true;
+		movingAreaParams.clickPosition = {
+			x: event.screenX,
+			y: event.screenY
+		};
+		var transform = movingImage.css('transform').split(',');
+		if(transform.length == 6){
+			movingAreaParams.startPosition = {x: parseInt(transform[4]), y: parseInt(transform[5])};
+		}
+	});
+	document.addEventListener('mouseup', function(event) {
+		movingAreaParams.moving = false;
+	});
+	document.addEventListener('mousemove', function(event) {
+		if (movingAreaParams.moving && movingAreaParams.custom) {
+			movingAreaParams.position = {
+				x: movingAreaParams.startPosition.x + event.screenX - movingAreaParams.clickPosition.x,
+				y: movingAreaParams.startPosition.y + event.screenY - movingAreaParams.clickPosition.y
+			};
+			
+			movingImage.css('transform','translate('+movingAreaParams.position.x+'px, '+movingAreaParams.position.y+'px) scale('+movingAreaParams.zoom+')');
+		}
+
+	});
+
+	$('#zoom').on('input change', function(){
+		movingAreaParams.zoom = parseInt($(this).val())/100;
+		movingImage.css('transform','translate('+movingAreaParams.position.x+'px, '+movingAreaParams.position.y+'px) scale('+movingAreaParams.zoom+')');
+	});
+
+
 
 });
 

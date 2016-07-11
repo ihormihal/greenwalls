@@ -16,30 +16,10 @@
 					</section>
 
 					<section id="canvas" class="canvas mt2 mb2">
-						<div id="picture" class="picture">
-							<img ng-src="{{room.image}}" alt="" class="bg">
-							<div class="grid">
-								<table>
-									<tr ng-repeat="(y, row) in grid.rows">
-										<td ng-click="selectRow(y)" class="plus">+</td>
-										<td class="td"
-										ng-repeat="(x, cell) in row"
-										ng-class="{'area': cell.area, 'selected': cell.selected, 'plant': cell.plant}"
-										ng-click="selectCell(x, y)">
-											<div class="cell cell-x-{{x}} cell-y-{{y}}" title="{{x}}:{{y}}">
-												<img ng-show="cell.plant" ng-src="{{cell.plant.image}}" alt="">
-											</div>
-										</td>
-										<td ng-click="selectRow(y)" class="plus">+</td>
-									</tr>
-								</table>
-								<div id="bottom-bak" class="bottom-bak offset-{{area.offset.x}} width-{{area.size.x}}">
-									<div ng-show="bak.img" class="back-image" style="background-image: url({{bak.img}});"></div>
-								</div>
-							</div>
-						</div>
+						
 						<div class="container controls">
 							<div class="control-top">
+								<div class="zoom"><input id="zoom" type="range" min="20" max="300" value="100" step="1" /></div>
 								<a id="capture" href="#" class="btn-fl c-red-bg hover-bg-darken"><i class="fa fa-camera"></i></a>
 								<a id="hide-grid" href="#" class="btn-fl c-red-bg hover-bg-darken"><i class="fa fa-eye-slash"></i></a>
 								<!-- <a ng-click="saveComposition();" class="btn-fl c-red-bg hover-bg-darken"><i class="fa fa-floppy-o"></i></a> -->
@@ -80,6 +60,13 @@
 											<img ng-src="{{room.icon}}" alt="">
 											<div class="item-title">{{room.title}}</div>
 										</div>
+										<div
+										class="item custom-image"
+										>
+											<input id="custom-room" type="file" accept="image/x-png, image/gif, image/jpeg">
+											<img src="design/images/plants.jpg" alt="">
+											<div class="item-title">Custom</div>
+										</div>
 										<div class="divider"></div>
 										<div class="item">
 											<div class="img" ng-click="baksShowed = !baksShowed">
@@ -110,9 +97,33 @@
 									</carousel>
 								</div>
 							</div>
-
-
 						</div>
+
+						<div id="picture" class="picture">
+							<img ng-src="{{room.image}}" alt="" class="bg default">
+							<img src="" alt="" class="bg custom">
+							<div class="moving"></div>
+							<div class="grid">
+								<table>
+									<tr ng-repeat="(y, row) in grid.rows">
+										<td ng-click="selectRow(y)" class="plus">+</td>
+										<td class="td"
+										ng-repeat="(x, cell) in row"
+										ng-class="{'area': cell.area, 'selected': cell.selected, 'plant': cell.plant}"
+										ng-click="selectCell(x, y)">
+											<div class="cell cell-x-{{x}} cell-y-{{y}}" title="{{x}}:{{y}}">
+												<img ng-show="cell.plant" ng-src="{{cell.plant.image}}" alt="">
+											</div>
+										</td>
+										<td ng-click="selectRow(y)" class="plus">+</td>
+									</tr>
+								</table>
+								<div id="bottom-bak" class="bottom-bak offset-{{area.offset.x}} width-{{area.size.x}}">
+									<div ng-show="bak.img" class="back-image" style="background-image: url({{bak.img}});"></div>
+								</div>
+							</div>
+						</div>
+
 					</section>
 
 

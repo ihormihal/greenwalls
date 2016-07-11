@@ -283,6 +283,9 @@ angular.module('app', [])
 
 	$scope.selectRoom = function(index){
 		$scope.room = $scope.rooms[index];
+		movingAreaParams = movingAreaParamsDefaults;
+		$('#canvas').removeClass('custom-bg');
+		$('#custom-room').val('');
 	};
 
 	$scope.placePlant = function(index){
