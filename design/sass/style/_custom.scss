@@ -483,7 +483,7 @@ $zoom2: 1.5;
 			margin-left: $boxWidth;
 			@for $i from 1 through 15 {
 				&.offset-#{$i} {
-					left: ($boxWidth + 0.5px) * $i;
+					left: ($boxWidth + 0.3px) * $i;
 				}
 			}
 			@for $i from 1 through 30 {
@@ -520,12 +520,12 @@ $zoom2: 1.5;
 			margin-left: $boxWidth * $zoom1;
 			@for $i from 1 through 15 {
 				&.offset-#{$i} {
-					left: ($boxWidth * $zoom1 + 0.5px) * $i;
+					left: ($boxWidth * $zoom1 + 1.5px) * $i;
 				}
 			}
 			@for $i from 1 through 30 {
 				&.width-#{$i} {
-					width: ($boxWidth * $zoom1) * $i;
+					width: ($boxWidth * $zoom1 + 0.6px) * $i;
 				}
 			}
 		}
@@ -557,12 +557,12 @@ $zoom2: 1.5;
 			margin-left: $boxWidth * $zoom2;
 			@for $i from 1 through 15 {
 				&.offset-#{$i} {
-					left: ($boxWidth * $zoom2 + 0.5px) * $i;
+					left: ($boxWidth * $zoom2 + 1px) * $i;
 				}
 			}
 			@for $i from 1 through 30 {
 				&.width-#{$i} {
-					width: ($boxWidth * $zoom2) * $i;
+					width: ($boxWidth * $zoom2 + 0.5px) * $i;
 				}
 			}
 		}

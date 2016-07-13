@@ -88,12 +88,6 @@ angular.module('app', [])
 			title: 'Blue Room',
 			icon: 'design/images/rooms/blue-room-icon.png',
 			image: 'design/images/rooms/blue-room_lux.jpg'
-		},
-		{
-			id: 3,
-			title: 'Luxury Room',
-			icon: 'design/images/rooms/luxury-room-icon.png',
-			image: 'design/images/rooms/luxury-room.jpg'
 		}
 	];
 
