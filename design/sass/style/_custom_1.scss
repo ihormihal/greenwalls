@@ -86,39 +86,36 @@ html, body {
 	bottom: $offsetBotttom;
 	left: 50%;
 	@include transform(translate(-50%,0));
-	table {
-		table-layout: fixed;
-		margin: 0 auto;
-		border-collapse: collapse;
+
+	.bottom-bak {
+		position: relative;
+		margin-left: 40px;
+		margin-top: 10px;
+		.back-image {
+			height: 100%;
+			background-color: #333;
+			background-repeat: repeat-x;
+			background-size: contain;
+			@include box-shadow(5px 5px 10px rgba(0, 0, 0, 0.5));
+		}
 	}
-	td {
+	
+	.td {
 		padding: 0;
 		vertical-align: middle;
 		text-align: center;
-		border: none;
-		border: 1px solid rgba(255,255,255,0.4);
-		width: $boxWidth;
-		height: $boxHeight;
+		line-height: $boxHeight;
 		vertical-align: middle;
-		//border: none;
-		&.plus {
-			border: none;
-			vertical-align: middle;
-			font-size: 20px;
-			color: rgba(255,255,255,0.6);
-			cursor: pointer;
-			@include transition(color 0.3s ease);
-			border-color: transparent;
-			&:hover {
-				color: #fff;
-				background-color: transparent;
-			}
-		}
+		float: left;
+		
 		.cell {
 			cursor: default;
 			position: relative;
-			width: 100%;
-			height: 100%;
+			border: 1px solid rgba(255,255,255,0.4);
+			border-width: 1px 0 0 1px;
+			width: $boxWidth;
+			height: $boxHeight;
+			text-align: center;
 
 			&:after {
 				display: none;
@@ -133,39 +130,70 @@ html, body {
 				@include box-shadow(0 0 10px rgba(255,255,255,1) inset, 0 0 10px rgba(255,255,255,1));
 			}
 		}
+
+		&:first-child {
+			.cell {
+				border-left: none;
+			}
+		}
+
+		.plus {
+			vertical-align: middle;
+			font-size: 20px;
+			color: rgba(255,255,255,0.6);
+			cursor: pointer;
+			@include transition(color 0.3s ease);
+			&:hover {
+				color: #fff;
+				background-color: transparent;
+			}
+		}
+		
 		img {
 			display: none;
 		}
+
 		&.area {
-			background-color: rgba(255,255,255,0.4);
+			background-color: rgba(255,255,255,0.2);
 			@include transition(background-color 0.3s ease);
 
 			&:hover {
 				background-color: rgba(255,255,255,0.8);
 			}
 			&.selected, &.plant {
-				//background-color: #888;
+				background-color: #555;
 				background-image: url(../images/box.png);
 				background-size: cover;
 				background-repeat: no-repeat;
 				border-color: transparent;
 				position: relative;
-				.cell {
-					border: none;
-				}
 			}
 			&.selected.plant .cell:after {
 				display: block;
 			}
-			&.plant img {
-				display: block;
-				position: absolute;
-				z-index: 10;
-				bottom: 0;
-				left: 50%;
-				width: $overFlow;
-				pointer-events: none;
-				@include transform(translate(-50%,0));
+			&.plant {
+				img {
+					display: block;
+					position: absolute;
+					z-index: 10;
+					bottom: 0;
+					left: 50%;
+					width: $overFlow;
+					pointer-events: none;
+					@include transform(translate(-50%,0));
+				}
+			}
+		}
+	}
+	.tr {
+		&:after {
+			display: block;
+			content: '';
+			clear: both;
+		}
+		&:first-child {
+			.td .cell {
+				border-top: none;
 			}
 		}
 	}
@@ -225,18 +253,6 @@ html, body {
 			left: 0;
 			width: 100%;
 			z-index: 1;
-		}
-	}
-	.bottom-bak {
-		position: relative;
-		margin-left: 40px;
-		margin-top: 10px;
-		.back-image {
-			height: 100%;
-			background-color: #333;
-			background-repeat: repeat-x;
-			background-size: contain;
-			@include box-shadow(5px 5px 10px rgba(0, 0, 0, 0.5));
 		}
 	}
 	.controls {
@@ -376,7 +392,7 @@ html, body {
 				float: left;
 				text-align: center;
 				img {
-					width: 45px;
+					width: 64px;
 					height: 64px;
 					pointer-events: none;
 				}
@@ -390,18 +406,28 @@ html, body {
 			}
 		}
 	}
+	.plants .presets .item img {
+		width: 45px;
+		height: 64px;
+	}
 }
+
 
 .canvas.plain {
 	.grid {
-		table {
-			td {
-				border-color: transparent;
+		.stand {
+			.td {
+				.cell {
+					border-color: transparent;
+					&.plus {
+						visibility: hidden;
+					}
+				}
 				&.area {
 					background-color: transparent;
 				}
-				&.plus {
-					visibility: hidden;
+				&.selected, &.plant {
+					background-color: #555;
 				}
 			}
 		}
@@ -475,7 +501,7 @@ $zoom2: 1.5;
 			margin-left: $boxWidth;
 			@for $i from 1 through 15 {
 				&.offset-#{$i} {
-					left: ($boxWidth + 0.3px) * $i;
+					left: ($boxWidth) * $i;
 				}
 			}
 			@for $i from 1 through 30 {
@@ -497,7 +523,7 @@ $zoom2: 1.5;
 		}
 		.grid {
 			bottom: 171px;
-			td {
+			.td .cell {
 				width: $boxWidth * $zoom1;
 				height: $boxHeight * $zoom1;
 			}
@@ -507,12 +533,12 @@ $zoom2: 1.5;
 			margin-left: $boxWidth * $zoom1;
 			@for $i from 1 through 15 {
 				&.offset-#{$i} {
-					left: ($boxWidth * $zoom1 + 1.5px) * $i;
+					left: $boxWidth * $zoom1 * $i;
 				}
 			}
 			@for $i from 1 through 30 {
 				&.width-#{$i} {
-					width: ($boxWidth * $zoom1 + 0.6px) * $i;
+					width: $boxWidth * $zoom1 * $i;
 				}
 			}
 		}
@@ -529,7 +555,7 @@ $zoom2: 1.5;
 		}
 		.grid {
 			bottom: 205px;
-			td {
+			.td .cell {
 				width: $boxWidth * $zoom2;
 				height: $boxHeight * $zoom2;
 			}
@@ -539,12 +565,12 @@ $zoom2: 1.5;
 			margin-left: $boxWidth * $zoom2;
 			@for $i from 1 through 15 {
 				&.offset-#{$i} {
-					left: ($boxWidth * $zoom2 + 1px) * $i;
+					left: $boxWidth * $zoom2 * $i;
 				}
 			}
 			@for $i from 1 through 30 {
 				&.width-#{$i} {
-					width: ($boxWidth * $zoom2 + 0.5px) * $i;
+					width: $boxWidth * $zoom2 * $i;
 				}
 			}
 		}

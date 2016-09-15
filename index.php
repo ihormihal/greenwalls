@@ -85,14 +85,14 @@
 							</div>
 
 							<div class="bottom-control slide-right" ng-class="{'active': plantsShowed}">
-								<div class="control-horizontal">
+								<div class="control-horizontal plants">
 									<carousel items="plants" action="placePlant(index)">
 									</carousel>
 								</div>
 							</div>
 
 							<div class="bottom-control slide-left" ng-class="{'active': baksShowed}">
-								<div class="control-horizontal">
+								<div class="control-horizontal baks">
 									<carousel items="baks" action="placeBack(index)">
 									</carousel>
 								</div>
@@ -104,20 +104,22 @@
 							<img src="" alt="" class="bg custom">
 							<div class="moving"></div>
 							<div class="grid">
-								<table>
-									<tr ng-repeat="(y, row) in grid.rows">
-										<td ng-click="selectRow(y)" class="plus">+</td>
-										<td class="td"
-										ng-repeat="(x, cell) in row"
-										ng-class="{'area': cell.area, 'selected': cell.selected, 'plant': cell.plant}"
-										ng-click="selectCell(x, y)">
+								<div class="stand">
+									<div class="tr" ng-repeat="(y, row) in grid.rows">
+										<div class="td" ng-click="selectRow(y)"><div class="cell plus">+</div></div>
+										<div 
+											ng-repeat="(x, cell) in row"
+											class="td"
+											ng-class="{'area': cell.area, 'selected': cell.selected, 'plant': cell.plant}"
+											ng-click="selectCell(x, y)"
+											>
 											<div class="cell cell-x-{{x}} cell-y-{{y}}" title="{{x}}:{{y}}">
 												<img ng-show="cell.plant" ng-src="{{cell.plant.image}}" alt="">
 											</div>
-										</td>
-										<td ng-click="selectRow(y)" class="plus">+</td>
-									</tr>
-								</table>
+										</div>
+										<div class="td" ng-click="selectRow(y)"><div class="cell plus">+</div></div>
+									</div>
+								</div>
 								<div id="bottom-bak" class="bottom-bak offset-{{area.offset.x}} width-{{area.size.x}}">
 									<div ng-show="bak.img" class="back-image" style="background-image: url({{bak.img}});"></div>
 								</div>

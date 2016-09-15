@@ -195,9 +195,9 @@ angular.module('app', [])
 		},
 		{
 			id: 8,
-			title: 'Nefrolepis',
+			title: 'Nephrolepis',
 			price: 120,
-			image: 'design/images/plants/Nefrolepis.png',
+			image: 'design/images/plants/Nephrolepis.png',
 			over: true
 		},
 		{
