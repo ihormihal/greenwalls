@@ -20,10 +20,11 @@
 						<div class="container controls">
 							<div class="control-top">
 								<div class="zoom"><input id="zoom" type="range" min="20" max="300" value="100" step="1" /></div>
-								<a id="capture" href="#" class="btn-fl c-red-bg hover-bg-darken"><i class="fa fa-camera"></i></a>
-								<a id="hide-grid" href="#" class="btn-fl c-red-bg hover-bg-darken"><i class="fa fa-eye-slash"></i></a>
-								<!-- <a ng-click="saveComposition();" class="btn-fl c-red-bg hover-bg-darken"><i class="fa fa-floppy-o"></i></a> -->
-								<a ng-click="clearArea();" class="btn-fl c-red-bg hover-bg-darken"><i class="fa fa-eraser"></i></a>
+								<a title="Скриншот" id="capture" href="#" class="btn-fl c-red-bg hover-bg-darken"><i class="fa fa-camera"></i></a>
+								<a title="Элементы управления" id="hide-grid" href="#" class="btn-fl c-red-bg hover-bg-darken"><i class="fa fa-eye-slash"></i></a>
+								<a ng-click="saveComposition();" class="btn-fl c-red-bg hover-bg-darken"><i class="fa fa-floppy-o"></i></a>
+								<a title="Удалить бак" ng-click="removeBack()" class="btn-fl c-red-bg hover-bg-darken"><i class="fa fa-trash"></i></a>
+								<a title="Очистить" ng-click="clearArea();" class="btn-fl c-red-bg hover-bg-darken"><i class="fa fa-eraser"></i></a>
 							</div>
 							<div class="control control-left">
 								<div class="inner">
@@ -39,7 +40,7 @@
 										</div>
 										<div class="divider" style="margin-top: 258px;"></div>
 										<div class="item">
-											<div class="img" ng-click="plantsShowed = !plantsShowed">
+											<div class="img" ng-click="baksShowed = false; plantsShowed = !plantsShowed;">
 												<img src="design/images/plants.jpg" alt="">
 												<div class="icon"><i class="fa" ng-class="{'fa-angle-right': !plantsShowed, 'fa-angle-left': plantsShowed}"></i></div>
 											</div>
@@ -69,7 +70,7 @@
 										</div>
 										<div class="divider"></div>
 										<div class="item">
-											<div class="img" ng-click="baksShowed = !baksShowed">
+											<div class="img" ng-click="plantsShowed = false; baksShowed = !baksShowed;">
 												<img src="design/images/bak.jpg" alt="">
 												<div class="icon"><i class="fa" ng-class="{'fa-angle-left': !baksShowed, 'fa-angle-right': baksShowed}"></i></div>
 											</div>

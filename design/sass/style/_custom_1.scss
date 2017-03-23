@@ -99,6 +99,10 @@ html, body {
 			@include box-shadow(5px 5px 10px rgba(0, 0, 0, 0.5));
 		}
 	}
+
+	.tr {
+		width: $boxWidth*32;
+	}
 	
 	.td {
 		padding: 0;
@@ -335,6 +339,7 @@ html, body {
 				padding: 0 5px;
 				text-align: center;
 				margin-bottom: 20px;
+				position: relative;
 				.img, img{
 					width: 64px;
 					height: 64px;
@@ -391,6 +396,15 @@ html, body {
 				height: 110px;
 				float: left;
 				text-align: center;
+				position: relative;
+				.count {
+					position: absolute;
+					top: 0;
+					right: 0;
+					background-color: rgba(255,245,120,0.9);
+					padding: 3px 6px;
+					@include border-radius(50%);
+				}
 				img {
 					width: 64px;
 					height: 64px;
@@ -481,7 +495,7 @@ html, body {
 	@include opacity(0);
 }
 
-$height: 720px;
+$height: 800px;
 $ratio: 1.777777777;
 
 $zoom1: 1.25;
@@ -527,6 +541,9 @@ $zoom2: 1.5;
 				width: $boxWidth * $zoom1;
 				height: $boxHeight * $zoom1;
 			}
+			.tr {
+				width: $boxWidth * $zoom1 * 32;
+			}
 		}
 		.bottom-bak {
 			height: $bakHeight * $zoom1;
@@ -558,6 +575,9 @@ $zoom2: 1.5;
 			.td .cell {
 				width: $boxWidth * $zoom2;
 				height: $boxHeight * $zoom2;
+			}
+			.tr {
+				width: $boxWidth * $zoom2 * 32;
 			}
 		}
 		.bottom-bak {

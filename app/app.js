@@ -1,6 +1,7 @@
-var composition_1 = '{"bak": 0, "grid":{"size":{"x":12,"y":10}},"area":{"size":{"x":6,"y":5},"offset":{"x":3,"y":5}},"cells":[{"x":4,"y":5,"plant":7},{"x":5,"y":5,"plant":1},{"x":6,"y":5,"plant":1},{"x":7,"y":5,"plant":7},{"x":3,"y":6,"plant":7},{"x":4,"y":6,"plant":7},{"x":5,"y":6,"plant":1},{"x":6,"y":6,"plant":1},{"x":7,"y":6,"plant":7},{"x":8,"y":6,"plant":7},{"x":3,"y":7,"plant":7},{"x":4,"y":7,"plant":7},{"x":5,"y":7,"plant":1},{"x":6,"y":7,"plant":1},{"x":7,"y":7,"plant":7},{"x":8,"y":7,"plant":7},{"x":3,"y":8,"plant":7},{"x":4,"y":8,"plant":7},{"x":5,"y":8,"plant":1},{"x":6,"y":8,"plant":1},{"x":7,"y":8,"plant":7},{"x":8,"y":8,"plant":7},{"x":3,"y":9,"plant":0},{"x":4,"y":9,"plant":0},{"x":5,"y":9,"plant":0},{"x":6,"y":9,"plant":0},{"x":7,"y":9,"plant":0},{"x":8,"y":9,"plant":0}]}';
-var composition_2 = '{"bak": 2, "grid":{"size":{"x":12,"y":10}},"area":{"size":{"x":8,"y":6},"offset":{"x":2,"y":4}},"cells":[{"x":2,"y":4,"plant":6},{"x":3,"y":4,"plant":0},{"x":4,"y":4,"plant":0},{"x":5,"y":4,"plant":0},{"x":6,"y":4,"plant":0},{"x":7,"y":4,"plant":0},{"x":8,"y":4,"plant":0},{"x":9,"y":4,"plant":6},{"x":2,"y":5,"plant":8},{"x":3,"y":5,"plant":6},{"x":4,"y":5,"plant":4},{"x":5,"y":5,"plant":4},{"x":6,"y":5,"plant":4},{"x":7,"y":5,"plant":4},{"x":8,"y":5,"plant":6},{"x":9,"y":5,"plant":8},{"x":2,"y":6,"plant":8},{"x":4,"y":6,"plant":6},{"x":5,"y":6,"plant":4},{"x":6,"y":6,"plant":4},{"x":7,"y":6,"plant":6},{"x":9,"y":6,"plant":8},{"x":2,"y":7,"plant":8},{"x":3,"y":7,"plant":6},{"x":5,"y":7,"plant":6},{"x":6,"y":7,"plant":6},{"x":8,"y":7,"plant":6},{"x":9,"y":7,"plant":8},{"x":2,"y":8,"plant":10},{"x":3,"y":8,"plant":10},{"x":4,"y":8,"plant":6},{"x":7,"y":8,"plant":6},{"x":8,"y":8,"plant":10},{"x":9,"y":8,"plant":10},{"x":2,"y":9,"plant":12},{"x":3,"y":9,"plant":12},{"x":4,"y":9,"plant":12},{"x":5,"y":9,"plant":12},{"x":6,"y":9,"plant":12},{"x":7,"y":9,"plant":12},{"x":8,"y":9,"plant":12},{"x":9,"y":9,"plant":12}]}';
+var composition_1 = '{"bak": 0, "grid":{"size":{"x":30,"y":15}},"area":{"size":{"x":6,"y":5},"offset":{"x":12,"y":10}},"cells":[{"x":12,"y":10,"plant":2},{"x":13,"y":10,"plant":2},{"x":14,"y":10,"plant":2},{"x":15,"y":10,"plant":2},{"x":16,"y":10,"plant":2},{"x":17,"y":10,"plant":2},{"x":12,"y":11,"plant":6},{"x":13,"y":11,"plant":6},{"x":14,"y":11,"plant":6},{"x":15,"y":11,"plant":6},{"x":16,"y":11,"plant":6},{"x":17,"y":11,"plant":6},{"x":12,"y":12,"plant":2},{"x":13,"y":12,"plant":2},{"x":14,"y":12,"plant":2},{"x":15,"y":12,"plant":2},{"x":16,"y":12,"plant":2},{"x":17,"y":12,"plant":2},{"x":12,"y":13,"plant":9},{"x":13,"y":13,"plant":9},{"x":14,"y":13,"plant":9},{"x":15,"y":13,"plant":9},{"x":16,"y":13,"plant":9},{"x":17,"y":13,"plant":9},{"x":12,"y":14,"plant":2},{"x":13,"y":14,"plant":2},{"x":14,"y":14,"plant":2},{"x":15,"y":14,"plant":2},{"x":16,"y":14,"plant":2},{"x":17,"y":14,"plant":2}]}';
+var composition_2 = '{"bak": 1, "grid":{"size":{"x":30,"y":15}},"area":{"size":{"x":8,"y":6},"offset":{"x":11,"y":9}},"cells":[{"x":11,"y":9,"plant":13},{"x":12,"y":9,"plant":13},{"x":13,"y":9,"plant":13},{"x":14,"y":9,"plant":13},{"x":15,"y":9,"plant":13},{"x":16,"y":9,"plant":13},{"x":17,"y":9,"plant":13},{"x":18,"y":9,"plant":13},{"x":11,"y":10,"plant":9},{"x":12,"y":10,"plant":9},{"x":13,"y":10,"plant":9},{"x":14,"y":10,"plant":9},{"x":15,"y":10,"plant":9},{"x":16,"y":10,"plant":9},{"x":17,"y":10,"plant":9},{"x":18,"y":10,"plant":9},{"x":11,"y":11,"plant":11},{"x":12,"y":11,"plant":11},{"x":13,"y":11,"plant":12},{"x":14,"y":11,"plant":12},{"x":15,"y":11,"plant":12},{"x":16,"y":11,"plant":12},{"x":17,"y":11,"plant":11},{"x":18,"y":11,"plant":11},{"x":11,"y":12,"plant":11},{"x":12,"y":12,"plant":11},{"x":13,"y":12,"plant":12},{"x":14,"y":12,"plant":12},{"x":15,"y":12,"plant":12},{"x":16,"y":12,"plant":12},{"x":17,"y":12,"plant":11},{"x":18,"y":12,"plant":11},{"x":11,"y":13,"plant":11},{"x":12,"y":13,"plant":11},{"x":13,"y":13,"plant":12},{"x":14,"y":13,"plant":12},{"x":15,"y":13,"plant":12},{"x":16,"y":13,"plant":12},{"x":17,"y":13,"plant":11},{"x":18,"y":13,"plant":11},{"x":11,"y":14,"plant":11},{"x":12,"y":14,"plant":11},{"x":13,"y":14,"plant":11},{"x":14,"y":14,"plant":11},{"x":15,"y":14,"plant":11},{"x":16,"y":14,"plant":11},{"x":17,"y":14,"plant":11},{"x":18,"y":14,"plant":11}]}';
 
+var price = 12500/30;
 
 angular.module('app', [])
 
@@ -28,8 +29,8 @@ angular.module('app', [])
 		area: {
 			minWidth: 6,
 			minHeight: 5,
-			maxWidth: 12,
-			maxHeight: 10,
+			maxWidth: 30,
+			maxHeight: 15,
 		}
 	};
 
@@ -97,149 +98,149 @@ angular.module('app', [])
 			title: 'Stone',
 			img: 'design/images/baks/bak-stone.png',
 			image: 'design/images/baks/bak-stone-icon.png',
-			price: 120
+			price: price
 		},
 		{
 			id: 1,
 			title: 'Light stone',
 			img: 'design/images/baks/bak-stone-light.png',
 			image: 'design/images/baks/bak-stone-light-icon.png',
-			price: 120
+			price: price
 		},
 		{
 			id: 2,
 			title: 'Wood',
 			img: 'design/images/baks/bak-wood.png',
 			image: 'design/images/baks/bak-wood-icon.png',
-			price: 120
+			price: price
 		},
 		{
 			id: 3,
 			title: 'Light wood',
 			img: 'design/images/baks/bak-wood-light.png',
 			image: 'design/images/baks/bak-wood-light-icon.png',
-			price: 120
+			price: price
 		},
 		{
 			id: 4,
 			title: 'Plastik',
 			img: 'design/images/baks/bak-plastik.png',
 			image: 'design/images/baks/bak-plastik-icon.png',
-			price: 120
+			price: price
 		},
 		{
 			id: 5,
 			title: 'Light plastik',
 			img: 'design/images/baks/bak-plastik-light.png',
 			image: 'design/images/baks/bak-plastik-light-icon.png',
-			price: 120
+			price: price
 		}
 	];
 
 	$scope.plants = [
 		{
 			id: 0,
-			title: 'Aglaonema',
-			price: 120,
-			image: 'design/images/plants/Aglaonema.png',
+			title: 'Spathiphyllum',
+			price: price,
+			image: 'design/images/plants/00.png',
 			over: true
 		},
 		{
 			id: 1,
-			title: 'Anthurium',
-			price: 120,
-			image: 'design/images/plants/Anthurium.png',
+			title: 'Syngonium',
+			price: price,
+			image: 'design/images/plants/01.png',
 			over: true
 		},
 		{
 			id: 2,
-			title: 'Asplenium',
-			price: 120,
-			image: 'design/images/plants/Asplenium.png',
+			title: 'Dieffenbachia',
+			price: price,
+			image: 'design/images/plants/02.png',
 			over: true
 		},
 		{
 			id: 3,
-			title: 'Dieffenbachia',
-			price: 120,
-			image: 'design/images/plants/Dieffenbachia.png',
+			title: 'Nephrolepis',
+			price: price,
+			image: 'design/images/plants/03.png',
 			over: true
 		},
 		{
 			id: 4,
-			title: 'Epipremnum aureum Neon',
-			price: 120,
-			image: 'design/images/plants/Epipremnum-aureum-Neon.png',
+			title: 'Philodendron Scandens',
+			price: price,
+			image: 'design/images/plants/04.png',
 			over: true
 		},
 		{
 			id: 5,
-			title: 'Epipremnum aureus',
-			price: 120,
-			image: 'design/images/plants/Epipremnum-aureus.png',
+			title: 'Asplenium',
+			price: price,
+			image: 'design/images/plants/05.png',
 			over: true
 		},
 		{
 			id: 6,
-			title: 'Maranta',
-			price: 120,
-			image: 'design/images/plants/Maranta.png',
+			title: 'Ficus',
+			price: price,
+			image: 'design/images/plants/06.png',
 			over: true
 		},
 		{
 			id: 7,
-			title: 'Monstera',
-			price: 120,
-			image: 'design/images/plants/Monstera.png',
+			title: 'Maranta',
+			price: price,
+			image: 'design/images/plants/07.png',
 			over: true
 		},
 		{
 			id: 8,
-			title: 'Nephrolepis',
-			price: 120,
-			image: 'design/images/plants/Nephrolepis.png',
+			title: 'Alocasia',
+			price: price,
+			image: 'design/images/plants/08.png',
 			over: true
 		},
 		{
 			id: 9,
-			title: 'Peperomia',
-			price: 120,
-			image: 'design/images/plants/Peperomia.png',
+			title: 'Maranta',
+			price: price,
+			image: 'design/images/plants/09.png',
 			over: true
 		},
 		{
 			id: 10,
-			title: 'Philodendron Brasil',
-			price: 120,
-			image: 'design/images/plants/Philodendron-Brasil.png',
+			title: 'Ficus',
+			price: price,
+			image: 'design/images/plants/10.png',
 			over: true
 		},
 		{
 			id: 11,
-			title: 'Philodendron scandens',
-			price: 120,
-			image: 'design/images/plants/Philodendron-scandens.png',
+			title: 'Chlorophytum',
+			price: price,
+			image: 'design/images/plants/11.png',
 			over: true
 		},
 		{
 			id: 12,
-			title: 'Scindapsus Aureus Pictus',
-			price: 120,
-			image: 'design/images/plants/Scindapsus-Aureus-Pictus.png',
+			title: 'Scindapsus',
+			price: price,
+			image: 'design/images/plants/12.png',
 			over: true
 		},
 		{
 			id: 13,
-			title: 'Spathiphyllum',
-			price: 120,
-			image: 'design/images/plants/Spathiphyllum.png',
+			title: 'Anturium',
+			price: price,
+			image: 'design/images/plants/13.png',
 			over: true
 		},
 		{
 			id: 14,
-			title: 'Syngonium',
-			price: 120,
-			image: 'design/images/plants/Syngonium.png',
+			title: 'Aglaonema',
+			price: price,
+			image: 'design/images/plants/14.png',
 			over: true
 		}
 	];
@@ -273,6 +274,10 @@ angular.module('app', [])
 
 	$scope.placeBack = function(index){
 		$scope.bak = $scope.baks[index];
+	};
+
+	$scope.removeBack = function(index){
+		$scope.bak = null;
 	};
 
 	$scope.selectRoom = function(index){
@@ -322,6 +327,9 @@ angular.module('app', [])
 	};
 
 	$scope.calcPrice = function(){
+		for (var i = 0; i < $scope.plants.length; i++) {
+			$scope.plants[i].count = 0;
+		}
 		var price = 0;
 		for (var y = 0; y < $scope.grid.size.y; y++) {
 			for (var x = 0; x < $scope.grid.size.x; x++) {
@@ -329,11 +337,12 @@ angular.module('app', [])
 					//price += 100;
 					if($scope.grid.rows[y][x].plant){
 						price += $scope.grid.rows[y][x].plant.price;
+						$scope.grid.rows[y][x].plant.count++;
 					}
 				}
 			}
 		}
-		$scope.price = price;
+		$scope.price = Math.round(price);
 	};
 
 	$scope.drawGrid = function(){
@@ -376,6 +385,7 @@ angular.module('app', [])
 
 	$scope.saveComposition = function(){
 		var output = {
+			bak: $scope.bak.id,
 			grid: {
 				size: $scope.grid.size
 			},
@@ -429,6 +439,8 @@ angular.module('app', [])
 				$scope.bak = $scope.baks[i];
 			}
 		}
+		$scope.calcPrice();
+		//$scope.$apply();
 	};
 
 	$scope.deleteSelected = function(){

@@ -4,6 +4,7 @@
 		<div class="carousel-content static presets plants">
 			<div class="item" ng-repeat="plant in items" ng-click="select($index)">
 				<img ng-src="{{plant.image}}" alt="">
+				<span class="count" ng-show="plant.count">{{plant.count}}</span>
 				<div class="item-title">{{plant.title}}</div>
 			</div>
 		</div>

@@ -49,34 +49,99 @@ $(function() {
 		}
 	});
 
+
+	// $('#capture').click(function(event){
+	// 	event.preventDefault();
+	// 	var gridHidden = $('#canvas').hasClass('plain');
+	// 	var pictureEl = $('#picture')[0];
+	// 	//console.log(pictureEl);
+
+	// 	$('#canvas').addClass('plain');
+	// 	html2canvas(pictureEl, {
+	// 		onrendered: function(canvas) {
+	// 			if(!gridHidden){
+	// 				$('#canvas').removeClass('plain');
+	// 			}
+	// 			var dataURL = canvas.toDataURL();
+	// 			var blobBin = atob(dataURL.split(',')[1]);
+	// 			var array = [];
+	// 			for (var i = 0; i < blobBin.length; i++) {
+	// 				array.push(blobBin.charCodeAt(i));
+	// 			}
+	// 			var file = new Blob([new Uint8Array(array)], { type: 'image/png' });
+	// 			url = window.URL.createObjectURL(file);
+
+	// 			download.href = url;
+	// 			download.download = 'image.png';
+	// 			download.click();
+	// 			window.URL.revokeObjectURL(url);
+
+	// 		}
+	// 	});
+
+	// });
+
+
+
 	$('#capture').click(function(event){
 		event.preventDefault();
 		var gridHidden = $('#canvas').hasClass('plain');
-		var pictureEl = $('#picture')[0];
-		//console.log(pictureEl);
+		var pictureEl = document.getElementById('picture');
 
 		$('#canvas').addClass('plain');
-		html2canvas(pictureEl, {
-			onrendered: function(canvas) {
+		//console.log(pictureEl);
+
+		var offset = $('#picture').offset().top;
+		var w = pictureEl.clientWidth;
+		var h = pictureEl.clientHeight;
+
+		var scale = 4;
+		var canvas = document.createElement('canvas');
+		canvas.width = scale*w;
+		canvas.height = scale*(h + offset);
+
+		canvas.style.width = w + 'px';
+		canvas.style.height = h + 'px';
+		canvas.getContext('2d').scale(scale,scale);
+
+		html2canvas(pictureEl, { 
+			canvas: canvas,
+			onrendered: function(canv) {
 				if(!gridHidden){
 					$('#canvas').removeClass('plain');
 				}
-				var dataURL = canvas.toDataURL();
+
+				var newCanvas = document.createElement('canvas');
+				newCanvas.height = scale*h;
+				newCanvas.width = scale*w;
+				newCanvas.getContext("2d").drawImage(canv, 0, -offset*scale);
+
+				var dataURL = newCanvas.toDataURL();
+
+
+				// var image = document.createElement('img');
+				// image.src = dataURL;
+				// document.body.appendChild(image);
+
 				var blobBin = atob(dataURL.split(',')[1]);
 				var array = [];
 				for (var i = 0; i < blobBin.length; i++) {
 					array.push(blobBin.charCodeAt(i));
 				}
 				var file = new Blob([new Uint8Array(array)], { type: 'image/png' });
-				url = window.URL.createObjectURL(file);
+				var url = window.URL.createObjectURL(file);
 
 				download.href = url;
 				download.download = 'image.png';
 				download.click();
 				window.URL.revokeObjectURL(url);
 
+
 			}
 		});
+
+		
+
 
 	});
 

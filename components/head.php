@@ -1,8 +1,5 @@
-<?php
-$base = 'http://greenwalls/'
-?>
-<base href="<?php echo $base; ?>">
-<link rel="canonical" href="<?php echo $base; ?>">
+<base href="/">
+<link rel="canonical" href="/">
 <meta http-equiv="Content-Type" content="text/html; charset=utf8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1, user-scalable=no">
 <title>GreenWalls</title>
@@ -14,7 +11,7 @@ $base = 'http://greenwalls/'
 <link href="design/css/animate.css" type="text/css" rel="stylesheet">
 <!-- Plugins JS -->
 <script src="design/plugins/jquery/jquery-2.1.4.min.js" type="text/javascript"></script>
-<script src="design/plugins/fancybox/js/jquery.fancybox.pack.js" type="text/javascript"></script>
+<!-- <script src="design/plugins/fancybox/js/jquery.fancybox.pack.js" type="text/javascript"></script> -->
 <!-- Framework JS -->
 <!-- Custom JS -->
 <script src="design/js/scripts.js" type="text/javascript"></script>
